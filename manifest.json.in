@@ -1,0 +1,15 @@
+{
+    "name": "waydroidhelper.aaronhafer",
+    "description": "A collection of tools that help you to use Waydroid.",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Waydroid Helper",
+    "hooks": {
+        "waydroidhelper": {
+            "apparmor": "waydroidhelper.apparmor",
+            "desktop":  "waydroidhelper.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Aaron Hafer <aaronhafer@gmx.de>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
