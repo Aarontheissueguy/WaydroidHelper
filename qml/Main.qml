@@ -247,7 +247,8 @@ MainView {
           anchors.topMargin: 5
           anchors.horizontalCenter: parent.horizontalCenter
           width: parent.width * 0.9
-          text: i18n.tr ("\nwaydroid -h, --help show this help message and exit \n\n") +
+          text: i18n.tr ("\nYou need to run this commands into the Terminal app. \n\n") +
+                "waydroid -h, --help show this help message and exit \n\n" +
                 "waydroid -V, --version show program's version number and exit \n\n" +
                 "waydroid -l LOG, --log LOG path to log file \n\n" +
                 "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
