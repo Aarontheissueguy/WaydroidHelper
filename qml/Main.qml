@@ -255,12 +255,7 @@ MainView {
                 "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
                 "waydroid -q, --quiet do not output any log messages"
           wrapMode: Text.WordWrap
-        }
-
-                  Button {
-                      text: "ok"
-                      onClicked: PopupUtils.close(dialogueHide)
-                  }                              
+        }                           
              
     }            
 
