@@ -75,6 +75,19 @@ MainView {
                   }
 
               }
+            ListItem {
+                  Label {
+                      text: "Waydroid Help >"
+                      anchors.centerIn: parent
+                      font.pointSize: 35
+                      wrapMode: Text.WordWrap
+                  }
+                  onClicked: {
+                      pageStack.push(page3)
+
+                  }
+
+              }              
         }
 
 
@@ -219,6 +232,37 @@ MainView {
         }
       }
     }
+    
+      Page {
+        id: page3
+        visible: false
+        anchors.fill: parent
+        header: PageHeader {
+            id: header3
+            title: i18n.tr('Waydroid Help')
+        }
+        Label {
+          id: helpExplain
+          anchors.top: header3.bottom
+          anchors.topMargin: 5
+          anchors.horizontalCenter: parent.horizontalCenter
+          width: parent.width * 0.9
+          text: i18n.tr ("\n-h, --help show this help message and exit \n\n") +
+                "-V, --version show program's version number and exit \n\n" +
+                "-l LOG, --log LOG path to log file \n\n" +
+                "--details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
+                "-v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
+                "-q, --quiet do not output any log messages"
+          font.pointSize: 40
+          wrapMode: Text.WordWrap
+        }
+
+                  Button {
+                      text: "ok"
+                      onClicked: PopupUtils.close(dialogueHide)
+                  }
+
+              }            
 
     Python {
         id: python

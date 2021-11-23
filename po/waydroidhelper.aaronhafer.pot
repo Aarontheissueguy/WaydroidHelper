@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-22 21:47+0000\n"
+"POT-Creation-Date: 2021-11-23 10:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,10 +21,21 @@ msgstr ""
 msgid "Waydroid Helper"
 msgstr ""
 
-#: ../qml/Main.qml:89
+#: ../qml/Main.qml:102
 msgid "Show/Hide"
 msgstr ""
 
-#: ../qml/Main.qml:171
+#: ../qml/Main.qml:184
 msgid "Waydroid Stop"
+msgstr ""
+
+#: ../qml/Main.qml:242
+msgid "Waydroid Help"
+msgstr ""
+
+#: ../qml/Main.qml:250
+msgid ""
+"\n"
+"-h, --help show this help message and exit \n"
+"\n"
 msgstr ""
