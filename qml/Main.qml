@@ -247,12 +247,12 @@ MainView {
           anchors.topMargin: 5
           anchors.horizontalCenter: parent.horizontalCenter
           width: parent.width * 0.9
-          text: i18n.tr ("\n-h, --help show this help message and exit \n\n") +
-                "-V, --version show program's version number and exit \n\n" +
-                "-l LOG, --log LOG path to log file \n\n" +
-                "--details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
-                "-v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
-                "-q, --quiet do not output any log messages"
+          text: i18n.tr ("\nwaydroid -h, --help show this help message and exit \n\n") +
+                "waydroid -V, --version show program's version number and exit \n\n" +
+                "waydroid -l LOG, --log LOG path to log file \n\n" +
+                "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
+                "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
+                "waydroid -q, --quiet do not output any log messages"
           font.pointSize: 40
           wrapMode: Text.WordWrap
         }
