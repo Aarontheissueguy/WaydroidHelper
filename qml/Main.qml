@@ -42,7 +42,16 @@ MainView {
         header: PageHeader {
             id: header0
             title: i18n.tr('Waydroid Helper')
+      trailingActionBar {
+        actions: [
+        Action {
+            iconName: "info"
+            text: i18n.tr("About")
+            onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
         }
+      ]
+    }
+  }
 
         Column {
           anchors.top: header0.bottom
