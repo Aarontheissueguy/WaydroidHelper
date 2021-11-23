@@ -97,7 +97,7 @@ MainView {
 
                   }
 
-              }              
+              }
         }
 
 
@@ -242,32 +242,54 @@ MainView {
         }
       }
     }
-    
-      Page {
-        id: page3
-        visible: false
-        anchors.fill: parent
-        header: PageHeader {
-            id: header3
-            title: i18n.tr('Waydroid Help')
+
+    Page {
+      id: page3
+      visible: false
+      anchors.fill: parent
+      header: PageHeader {
+          id: header3
+          title: i18n.tr('Waydroid Help')
+      }
+
+        CenteredLabel {
+          id: helpExplain
+          anchors.top: header3.bottom
+          anchors.topMargin: 5
+          width: parent.width * 0.9
+          text: i18n.tr ("<b>You need to run these commands in the terminal app.</b><br><br>")
+
+          textSize: Label.Large
+          textFormat: Text.RichText
+      }
+      Flickable {
+        anchors.top: helpExplain.bottom
+        anchors.topMargin: 5
+        anchors.bottom: page3.bottom
+        anchors.bottomMargin: 5
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: page3.width * 0.9
+        contentHeight: helpList.implicitHeight
+        clip: true
+        Label {
+          id: helpList
+          anchors.left: parent.left
+          anchors.right: parent.right
+
+
+          text: "<code style='background-color: steelblue;'>waydroid -h</code>, --help show this help message and exit <br><br>" +
+                "<code style='background-color: steelblue;'>waydroid -V</code>, --version show program's version number and exit <br><br>" +
+                "<code style='background-color: steelblue;'>waydroid -l LOG</code>, --log LOG path to log file <br><br>" +
+                "<code style='background-color: steelblue;'>waydroid --details-to-stdout</code> print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
+                "<code style='background-color: steelblue;'>waydroid -v</code>, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
+                "<code style='background-color: steelblue;'>waydroid -q</code>, --quiet do not output any log messages"
+          textSize: Label.Large
+          textFormat: Text.RichText
+          wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
-        
-          CenteredLabel {
-            id: helpExplain
-            anchors.top: header3.bottom
-            anchors.topMargin: 5
-            width: parent.width * 0.9   
-            text: i18n.tr ("<b>You need to run these commands in the terminal app.</b><br><br>") +
-            "waydroid -h, --help show this help message and exit <br><br>" +
-            "waydroid -V, --version show program's version number and exit <br><br>" +
-            "waydroid -l LOG, --log LOG path to log file <br><br>" +
-            "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
-            "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
-            "waydroid -q, --quiet do not output any log messages"
-            textSize: Label.Large
-        }      
-     }
-                            
+      }
+   }
+
     Python {
         id: python
 
