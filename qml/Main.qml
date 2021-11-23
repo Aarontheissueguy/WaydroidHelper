@@ -260,9 +260,9 @@ MainView {
                   Button {
                       text: "ok"
                       onClicked: PopupUtils.close(dialogueHide)
-                  }
-
-              }            
+                  }                              
+             
+    }            
 
     Python {
         id: python
