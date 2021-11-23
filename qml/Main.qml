@@ -21,6 +21,7 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.3
 import Ubuntu.Components.Popups 1.3
+import "modules"
 
 MainView {
     id: root
@@ -241,24 +242,23 @@ MainView {
             id: header3
             title: i18n.tr('Waydroid Help')
         }
-        Label {
-          id: helpExplain
-          anchors.top: header3.bottom
-          anchors.topMargin: 5
-          anchors.horizontalCenter: parent.horizontalCenter
-          width: parent.width * 0.9
-          text: i18n.tr ("\nYou need to run these commands in the terminal app. \n\n") +
-                "waydroid -h, --help show this help message and exit \n\n" +
-                "waydroid -V, --version show program's version number and exit \n\n" +
-                "waydroid -l LOG, --log LOG path to log file \n\n" +
-                "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
-                "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
-                "waydroid -q, --quiet do not output any log messages"
-          wrapMode: Text.WordWrap
-        }                           
-             
-    }            
-
+        
+          CenteredLabel {
+            id: helpExplain
+            anchors.top: header3.bottom
+            anchors.topMargin: 5
+            width: parent.width * 0.9   
+            text: i18n.tr ("<b>You need to run these commands in the terminal app.</b><br><br>") +
+            "waydroid -h, --help show this help message and exit <br><br>" +
+            "waydroid -V, --version show program's version number and exit <br><br>" +
+            "waydroid -l LOG, --log LOG path to log file <br><br>" +
+            "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
+            "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
+            "waydroid -q, --quiet do not output any log messages"
+            textSize: Label.Large
+        }      
+     }
+                            
     Python {
         id: python
 
