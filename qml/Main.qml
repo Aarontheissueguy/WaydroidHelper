@@ -254,7 +254,6 @@ MainView {
                 "waydroid --details-to-stdout print details (e.g. build output) to stdout, instead of writing to the log \n\n" +
                 "waydroid -v, --verbose write even more to the logfiles (this may reduce performance) \n\n" +
                 "waydroid -q, --quiet do not output any log messages"
-          font.pointSize: 40
           wrapMode: Text.WordWrap
         }
 
