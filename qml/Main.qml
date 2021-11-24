@@ -48,6 +48,11 @@ MainView {
             iconName: "info"
             text: i18n.tr("About")
             onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
+        },
+        Action {
+            iconName: "dialog-question-symbolic"
+            text: i18n.tr("Help")
+            onTriggered: pageStack.push(Qt.resolvedUrl("Help.qml"))
         }
       ]
     }
@@ -258,7 +263,7 @@ MainView {
           anchors.top: header3.bottom
           anchors.topMargin: 5
           width: parent.width * 0.9
-          text: i18n.tr ("<b>You need to run these commands in the terminal app.</b><br><br>")
+          text: i18n.tr ("<b>You need to run these commands in the terminal app. Tap a command to copy it to the clipboard.</b><br><br>")
 
           textSize: Label.Large
           textFormat: Text.RichText
