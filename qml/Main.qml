@@ -21,6 +21,7 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.3
 import Ubuntu.Components.Popups 1.3
+import "modules"
 
 MainView {
     id: root
@@ -41,7 +42,16 @@ MainView {
         header: PageHeader {
             id: header0
             title: i18n.tr('Waydroid Helper')
+      trailingActionBar {
+        actions: [
+        Action {
+            iconName: "info"
+            text: i18n.tr("About")
+            onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
         }
+      ]
+    }
+  }
 
         Column {
           anchors.top: header0.bottom
@@ -75,6 +85,19 @@ MainView {
                   }
 
               }
+            ListItem {
+                  Label {
+                      text: "Waydroid Help >"
+                      anchors.centerIn: parent
+                      font.pointSize: 35
+                      wrapMode: Text.WordWrap
+                  }
+                  onClicked: {
+                      pageStack.push(page3)
+
+                  }
+
+              }
         }
 
 
@@ -99,6 +122,7 @@ MainView {
                   }
 
                   Button {
+                      color: "green"
                       text: "ok"
                       onClicked: PopupUtils.close(dialogueHide)
                   }
@@ -219,6 +243,78 @@ MainView {
         }
       }
     }
+
+    Page {
+      id: page3
+      visible: false
+      anchors.fill: parent
+      header: PageHeader {
+          id: header3
+          title: i18n.tr('Waydroid Help')
+      }
+
+        CenteredLabel {
+          id: helpExplain
+          anchors.top: header3.bottom
+          anchors.topMargin: 5
+          width: parent.width * 0.9
+          text: i18n.tr ("<b>You need to run these commands in the terminal app.</b><br><br>")
+
+          textSize: Label.Large
+          textFormat: Text.RichText
+      }
+      Flickable {
+        anchors.top: helpExplain.bottom
+        anchors.topMargin: 5
+        anchors.bottom: page3.bottom
+        anchors.bottomMargin: 5
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: page3.width * 0.9
+        contentHeight: helpList.implicitHeight
+        clip: true
+        Label {
+          id: helpList
+          anchors.left: parent.left
+          anchors.right: parent.right
+
+
+          text: "<a href='waydroid -h'>waydroid -h</a>, --help show this help message and exit <br><br>" +
+                "<a href='waydroid -V'>waydroid -V</a>, --version show program's version number and exit <br><br>" +
+                "<a href='waydroid -l LOG'>waydroid -l LOG</a>, --log LOG path to log file <br><br>" +
+                "<a href='waydroid --details-to-stdout'>waydroid --details-to-stdout</a> print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
+                "<a href='waydroid -v'>waydroid -v</a>, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
+                "<a href='waydroid -q'>waydroid -q</a>, --quiet do not output any log messages"
+          textSize: Label.Large
+          textFormat: Text.RichText
+          wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+          onLinkActivated: {
+              var mimeData = Clipboard.newData();
+              mimeData.text = link;
+              Clipboard.push(mimeData);
+              PopupUtils.open(dialogCopy)
+          }
+
+        }
+      }
+      Component {
+          id: dialogCopy
+          Dialog {
+              id: dialogueCopy
+              title: "Copied"
+              Label {
+                text: "You copied a command to your clipboard. You can now paste and use it in the terminal app."
+                wrapMode: Text.Wrap
+              }
+
+              Button {
+                  text: "ok"
+                  color: "green"
+                  onClicked: PopupUtils.close(dialogueCopy)
+              }
+
+          }
+      }
+   }
 
     Python {
         id: python
