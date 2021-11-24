@@ -52,7 +52,7 @@ MainView {
       ]
     }
   }
-
+  
         Column {
           anchors.top: header0.bottom
           anchors.bottom: parent.bottom

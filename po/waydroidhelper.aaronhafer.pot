@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 20:48+0000\n"
+"POT-Creation-Date: 2021-11-24 06:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../qml/About.qml:10
-msgid "About WayDroidHelper"
+msgid "About WayDroid Helper"
 msgstr ""
 
 #: ../qml/About.qml:43
-msgid "WayDroidHelper"
+msgid "WayDroid Helper<br/>"
 msgstr ""
 
 #: ../qml/About.qml:50
@@ -33,11 +33,15 @@ msgstr ""
 msgid "(C) 2021 By Aaron Hafer<br/>"
 msgstr ""
 
-#: ../qml/About.qml:72
+#: ../qml/About.qml:71
+msgid "General contributions:<br/>"
+msgstr ""
+
+#: ../qml/About.qml:80
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../qml/About.qml:82
+#: ../qml/About.qml:90
 msgid "Source code available on %1"
 msgstr ""
 

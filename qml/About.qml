@@ -7,7 +7,7 @@ Page {
 
     header: PageHeader {
         id: header
-        title: i18n.tr("About WayDroidHelper")
+        title: i18n.tr("About WayDroid Helper")
         opacity: 1
     }
 
@@ -40,7 +40,7 @@ Page {
                             font.weight: Font.DemiBold
                             horizontalAlignment: Text.AlignHCenter
                             wrapMode: Text.WordWrap
-                            text: i18n.tr("WayDroidHelper")
+                            text: i18n.tr("WayDroid Helper<br/>")
                         }
 
                     Label {
@@ -62,6 +62,14 @@ Page {
                             wrapMode: Text.WordWrap
                             horizontalAlignment: Text.AlignHCenter
                             text: i18n.tr("(C) 2021 By Aaron Hafer<br/>")
+                        }
+                        
+                        Label {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            horizontalAlignment: Text.AlignHCenter
+                            text: i18n.tr("General contributions:<br/>") +
+                                          "Rudi Timmermans<br/>"
                         }
 
                         Label {
