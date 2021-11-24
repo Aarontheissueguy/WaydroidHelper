@@ -52,7 +52,7 @@ MainView {
       ]
     }
   }
-  
+
         Column {
           anchors.top: header0.bottom
           anchors.bottom: parent.bottom
@@ -122,6 +122,7 @@ MainView {
                   }
 
                   Button {
+                      color: "green"
                       text: "ok"
                       onClicked: PopupUtils.close(dialogueHide)
                   }
@@ -277,16 +278,41 @@ MainView {
           anchors.right: parent.right
 
 
-          text: "<code style='background-color: steelblue;'>waydroid -h</code>, --help show this help message and exit <br><br>" +
-                "<code style='background-color: steelblue;'>waydroid -V</code>, --version show program's version number and exit <br><br>" +
-                "<code style='background-color: steelblue;'>waydroid -l LOG</code>, --log LOG path to log file <br><br>" +
-                "<code style='background-color: steelblue;'>waydroid --details-to-stdout</code> print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
-                "<code style='background-color: steelblue;'>waydroid -v</code>, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
-                "<code style='background-color: steelblue;'>waydroid -q</code>, --quiet do not output any log messages"
+          text: "<a href='waydroid -h'>waydroid -h</a>, --help show this help message and exit <br><br>" +
+                "<a href='waydroid -V'>waydroid -V</a>, --version show program's version number and exit <br><br>" +
+                "<a href='waydroid -l LOG'>waydroid -l LOG</a>, --log LOG path to log file <br><br>" +
+                "<a href='waydroid --details-to-stdout'>waydroid --details-to-stdout</a> print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
+                "<a href='waydroid -v'>waydroid -v</a>, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
+                "<a href='waydroid -q'>waydroid -q</a>, --quiet do not output any log messages"
           textSize: Label.Large
           textFormat: Text.RichText
           wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+          onLinkActivated: {
+              var mimeData = Clipboard.newData();
+              mimeData.text = link;
+              Clipboard.push(mimeData);
+              PopupUtils.open(dialogCopy)
+          }
+
         }
+      }
+      Component {
+          id: dialogCopy
+          Dialog {
+              id: dialogueCopy
+              title: "Copied"
+              Label {
+                text: "You copied a command to your clipboard. You can now paste and use it in the terminal app."
+                wrapMode: Text.Wrap
+              }
+
+              Button {
+                  text: "ok"
+                  color: "green"
+                  onClicked: PopupUtils.close(dialogueCopy)
+              }
+
+          }
       }
    }
 
