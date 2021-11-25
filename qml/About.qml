@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtGraphicalEffects 1.0
 import Ubuntu.Components 1.3
+import QtQuick.Layouts 1.3
 
 Page {
     id: aboutPage
@@ -40,14 +41,14 @@ Page {
                             font.weight: Font.DemiBold
                             horizontalAlignment: Text.AlignHCenter
                             wrapMode: Text.WordWrap
-                            text: i18n.tr("WayDroid Helper<br/>")
+                            text: i18n.tr("WayDroid Helper "+root.appVersion)
                         }
 
                     Label {
                         width: parent.width
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
-                        text: i18n.tr("A Tweak tool application for WayDroid on Ubuntu Touch.<br/>")
+                        text: i18n.tr("<br/>A Tweak tool application for WayDroid on Ubuntu Touch.<br/>")
                     }
 
                     Column {
