@@ -32,7 +32,7 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
     
-    property string appVersion : "v1.0.0"    
+    property string appVersion : "v1.0.1"    
 
     PageStack {
       id: pageStack

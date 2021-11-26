@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-24 19:37+0000\n"
+"POT-Creation-Date: 2021-11-26 06:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,59 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/About.qml:10
+#: ../qml/About.qml:11
 msgid "About WayDroid Helper"
 msgstr ""
 
-#: ../qml/About.qml:43
-msgid "WayDroid Helper<br/>"
+#: ../qml/About.qml:44
+msgid "WayDroid Helper "
 msgstr ""
 
-#: ../qml/About.qml:50
-msgid "A Tweak tool application for WayDroid on Ubuntu Touch.<br/>"
+#: ../qml/About.qml:51
+msgid "<br/>A Tweak tool application for WayDroid on Ubuntu Touch.<br/>"
 msgstr ""
 
-#: ../qml/About.qml:64
+#: ../qml/About.qml:65
 msgid "(C) 2021 By Aaron Hafer<br/>"
 msgstr ""
 
-#: ../qml/About.qml:71
+#: ../qml/About.qml:72
 msgid "General contributions:<br/>"
 msgstr ""
 
-#: ../qml/About.qml:80
+#: ../qml/About.qml:81
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: ../qml/About.qml:90
+#: ../qml/About.qml:91
 msgid "Source code available on %1"
 msgstr ""
 
-#: ../qml/Help.qml:10 ../qml/Main.qml:54
+#: ../qml/Help.qml:13 ../qml/Main.qml:56
 msgid "Help"
 msgstr ""
 
-#: ../qml/Main.qml:44 waydroidhelper.desktop.in.h:1
+#: ../qml/Main.qml:46 waydroidhelper.desktop.in.h:1
 msgid "Waydroid Helper"
 msgstr ""
 
-#: ../qml/Main.qml:49
+#: ../qml/Main.qml:51
 msgid "About"
 msgstr ""
 
-#: ../qml/Main.qml:117
+#: ../qml/Main.qml:119
 msgid "Show/Hide"
 msgstr ""
 
-#: ../qml/Main.qml:200
+#: ../qml/Main.qml:202
 msgid "Waydroid Stop"
 msgstr ""
 
-#: ../qml/Main.qml:258
+#: ../qml/Main.qml:260
 msgid "Waydroid Help"
 msgstr ""
 
-#: ../qml/Main.qml:266
+#: ../qml/Main.qml:268
 msgid ""
 "<b>You need to run these commands in the terminal app. Tap a command to copy "
 "it to the clipboard.</b><br><br>"
