@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the waydroidhelper.aaronhafer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: waydroidhelper.aaronhafer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-24 19:37+0000\n"
+"PO-Revision-Date: 2021-11-30 20:22+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: ../qml/About.qml:10
+msgid "About WayDroid Helper"
+msgstr "Over Waydroid-hulpapp"
+
+#: ../qml/About.qml:43
+msgid "WayDroid Helper<br/>"
+msgstr "Waydroid-hulpapp<br/>"
+
+#: ../qml/About.qml:50
+msgid "A Tweak tool application for WayDroid on Ubuntu Touch.<br/>"
+msgstr "Een app voor het afstellen van Waydroid op Ubuntu Touch.<br/>"
+
+#: ../qml/About.qml:64
+msgid "(C) 2021 By Aaron Hafer<br/>"
+msgstr "(C) 2021 Aaron Hafer<br/>"
+
+#: ../qml/About.qml:71
+msgid "General contributions:<br/>"
+msgstr "Algemene bijdragen:<br/>"
+
+#: ../qml/About.qml:80
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "Uitgebracht onder de GNU GPLv3-licentie"
+
+#: ../qml/About.qml:90
+msgid "Source code available on %1"
+msgstr "De broncode is beschikbaar op %1"
+
+#: ../qml/Help.qml:10 ../qml/Main.qml:54
+msgid "Help"
+msgstr "Hulp"
+
+#: ../qml/Main.qml:44 waydroidhelper.desktop.in.h:1
+msgid "Waydroid Helper"
+msgstr "Waydroid-hulpapp"
+
+#: ../qml/Main.qml:49
+msgid "About"
+msgstr "Over"
+
+#: ../qml/Main.qml:117
+msgid "Show/Hide"
+msgstr "Tonen/Verbergen"
+
+#: ../qml/Main.qml:200
+msgid "Waydroid Stop"
+msgstr "Waydroid stoppen"
+
+#: ../qml/Main.qml:258
+msgid "Waydroid Help"
+msgstr "Waydroid starten"
+
+#: ../qml/Main.qml:266
+msgid ""
+"<b>You need to run these commands in the terminal app. Tap a command to copy "
+"it to the clipboard.</b><br><br>"
+msgstr ""
+"<b>Voer de volgende opdrachten uit in de terminal-app. Druk op een opdracht "
+"om deze te kopiëren naar het klembord.</b><br><br>"
