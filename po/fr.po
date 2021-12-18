@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the waydroidhelper.aaronhafer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: waydroidhelper.aaronhafer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-26 06:54+0000\n"
+"PO-Revision-Date: 2021-12-18 20:05+0000\n"
+"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/About.qml:11
+msgid "About WayDroid Helper"
+msgstr "À propos d'Assistant Waydroid"
+
+#: ../qml/About.qml:44
+msgid "WayDroid Helper "
+msgstr "Assistant Waydroid"
+
+#: ../qml/About.qml:51
+msgid "<br/>A Tweak tool application for WayDroid on Ubuntu Touch.<br/>"
+msgstr "<br/>Une application de personnalisation de Waydroid pour Ubuntu Touch.<br/>"
+
+#: ../qml/About.qml:65
+msgid "(C) 2021 By Aaron Hafer<br/>"
+msgstr "(C) 2021 par Aaron Hafer<br/>"
+
+#: ../qml/About.qml:72
+msgid "General contributions:<br/>"
+msgstr "Contributions générales :<br/>"
+
+#: ../qml/About.qml:81
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "Distribuée sous les termes de la Licence Générale Publique GNU v3"
+
+#: ../qml/About.qml:91
+msgid "Source code available on %1"
+msgstr "Code source disponible sur %1"
+
+#: ../qml/Help.qml:13 ../qml/Main.qml:56
+msgid "Help"
+msgstr "Aide"
+
+#: ../qml/Main.qml:46 waydroidhelper.desktop.in.h:1
+msgid "Waydroid Helper"
+msgstr "Assistant Waydroid"
+
+#: ../qml/Main.qml:51
+msgid "About"
+msgstr "À propos"
+
+#: ../qml/Main.qml:119
+msgid "Show/Hide"
+msgstr "Afficher/Masquer"
+
+#: ../qml/Main.qml:202
+msgid "Waydroid Stop"
+msgstr "Arrêt de Waydroid"
+
+#: ../qml/Main.qml:260
+msgid "Waydroid Help"
+msgstr "Aide sur Waydroid"
+
+#: ../qml/Main.qml:268
+msgid ""
+"<b>You need to run these commands in the terminal app. Tap a command to copy "
+"it to the clipboard.</b><br><br>"
+msgstr ""
+"<b>Vous devez exécuter ces commandes dans l'application Terminal. Appuyez sur une commande pour la copier "
+"dans le presse-papiers.</b><br><br>"
