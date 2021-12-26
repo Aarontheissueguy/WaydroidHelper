@@ -7,19 +7,19 @@ import io.thp.pyotherside 1.3
 import Ubuntu.Components.Popups 1.3
 
 Page {
-    id: aboutPage
-
+    id: aboutPage    
     header: PageHeader {
         id: header
         title: i18n.tr("Install Waydroid")
         opacity: 1
     }
-    Rectangle {
+    MainView {
         anchors.top: header.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         Component.onCompleted: PopupUtils.open(dialogInstall)
+        
         Label {
             id: content
             anchors.topMargin: 5
