@@ -14,7 +14,7 @@ Page {
         title: i18n.tr("Uninstall Waydroid")
         opacity: 1
     }
-    Rectangle {
+    MainView {
         anchors.top: header.bottom
         anchors.left: parent.left
         anchors.right: parent.right
