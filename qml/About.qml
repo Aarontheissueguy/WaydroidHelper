@@ -1,99 +1,99 @@
 import QtQuick 2.9
-import QtGraphicalEffects 1.0
 import Ubuntu.Components 1.3
-import QtQuick.Layouts 1.3
 
 Page {
     id: aboutPage
 
     header: PageHeader {
-        id: header
-        title: i18n.tr("About WayDroid Helper")
-        opacity: 1
+        title: i18n.tr("About")
     }
 
-                Column {
-                    id: layout
+    ScrollView {
+        id: scrollView
+        anchors {
+            top: aboutPage.header.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            leftMargin: units.gu(2)
+            rightMargin: units.gu(2)
+        }
 
-                    spacing: units.gu(3)
-                    anchors {
-                        top: parent.top
-                        left: parent.left
-                        right: parent.right
-                        topMargin: units.gu(7)
-                    }
+        clip: true
 
-                    UbuntuShape {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        height: width
-                        width: Math.min(parent.width/2, parent.height/1)
-                        source: Image {
-                            source: Qt.resolvedUrl("../assets/logo.png")
-                        }
-                        radius: "large"
-                    }
+        Column {
+            id: aboutColumn
+            spacing: units.gu(2)
+            width: scrollView.width
 
-                    Column {
-                        width: parent.width
-                        Label {
-                            width: parent.width
-                            textSize: Label.XLarge
-                            font.weight: Font.DemiBold
-                            horizontalAlignment: Text.AlignHCenter
-                            wrapMode: Text.WordWrap
-                            text: i18n.tr("WayDroid Helper "+root.appVersion)
-                        }
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("WayDroid Helper")
+                fontSize: "x-large"
+            }
 
-                    Label {
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        horizontalAlignment: Text.AlignHCenter
-                        text: i18n.tr("<br/>A Tweak tool application for WayDroid on Ubuntu Touch.<br/>")
-                    }
-
-                    Column {
-                        anchors {
-                            left: parent.left
-                            right: parent.right
-                            margins: units.gu(2)
-                        }
-
-                        Label {
-                            width: parent.width
-                            wrapMode: Text.WordWrap
-                            horizontalAlignment: Text.AlignHCenter
-                            text: i18n.tr("(C) 2021 By Aaron Hafer<br/>")
-                        }
-                        
-                        Label {
-                            width: parent.width
-                            wrapMode: Text.WordWrap
-                            horizontalAlignment: Text.AlignHCenter
-                            text: i18n.tr("General contributions:<br/>") +
-                                          "Rudi Timmermans<br/>"
-                        }
-
-                        Label {
-                            textSize: Label.Small
-                            width: parent.width
-                            wrapMode: Text.WordWrap
-                            horizontalAlignment: Text.AlignHCenter
-                            text: i18n.tr("Released under the terms of the GNU GPL v3")
-                        }
-                    }
-
-                    Label {
-                        width: parent.width
-                        wrapMode: Text.WordWrap
-                        textSize: Label.Small
-                        horizontalAlignment: Text.AlignHCenter
-                        linkColor: theme.palette.normal.focus
-                        text: i18n.tr("Source code available on %1").arg("<a href=\"https://github.com/Aarontheissueguy/WaydroidHelper\">GitHub</a>")
-                        onLinkActivated: Qt.openUrlExternally(link)
-                    }
-
+            UbuntuShape {
+                width: units.gu(12); height: units.gu(12)
+                anchors.horizontalCenter: parent.horizontalCenter
+                radius: "medium"
+                image: Image {
+                    source: Qt.resolvedUrl("../assets/logo.png")
                 }
             }
-         }
 
-    
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("Version: ") + "%1".arg(Qt.application.version)
+            }
+
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("A Tweak tool application for WayDroid on Ubuntu Touch.")
+            }
+
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                //TRANSLATORS: Please make sure the URLs are correct
+                text: i18n.tr("This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General Public License</a> for more details.")
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
+
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: "<a href='https://github.com/Aarontheissueguy/WaydroidHelper'>" + i18n.tr("SOURCE") + "</a> | <a href='https://github.com/Aarontheissueguy/WaydroidHelper/issues'>" + i18n.tr("ISSUES") + "</a> | <a href='https://www.paypal.com/paypalme/AaronTheIssueGuy'>" + i18n.tr("DONATE") + "</a>"
+                onLinkActivated: Qt.openUrlExternally(link)
+            }           
+
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                style: Font.Bold
+                text: i18n.tr("Copyright") + " (c) 2021 - 2022 Aaron Hafer"
+            }
+            
+            Label {
+                width: parent.width
+                linkColor: UbuntuColors.orange
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                style: Font.Bold
+                text: i18n.tr("General contributions: ") + "Rudi Timmermans"
+           }
+        }
+    }
+}
