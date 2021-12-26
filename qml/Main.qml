@@ -30,9 +30,7 @@ MainView {
     automaticOrientation: true
 
     width: units.gu(45)
-    height: units.gu(75)
-    
-    property string appVersion : "v1.0.1"    
+    height: units.gu(75)    
 
     PageStack {
       id: pageStack
@@ -43,7 +41,7 @@ MainView {
         anchors.fill: parent
         header: PageHeader {
             id: header0
-            title: i18n.tr('Waydroid Helper')
+            title: i18n.tr("Waydroid Helper")
       trailingActionBar {
         actions: [
         Action {
@@ -67,7 +65,7 @@ MainView {
             anchors.right: parent.right
             ListItem {
                 Label {
-                    text: "Install Waydroid 📲>"
+                    text: i18n.tr("Install Waydroid 📲>")
                     anchors.centerIn: parent
                     font.pointSize: 35
                     wrapMode: Text.WordWrap
@@ -80,7 +78,7 @@ MainView {
             }
             ListItem {
                 Label {
-                    text: "Show/Hide apps 🙈>"
+                    text: i18n.tr("Show/Hide apps 🙈>")
                     anchors.centerIn: parent
                     font.pointSize: 35
                     wrapMode: Text.WordWrap
@@ -94,7 +92,7 @@ MainView {
             }
             ListItem {
                   Label {
-                      text: '"Waydroid Stop" app 🛑>'
+                      text: i18n.tr("Waydroid Stop app 🛑>")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -107,7 +105,7 @@ MainView {
               }
             ListItem {
                   Label {
-                      text: "Waydroid Help ❓>"
+                      text: i18n.tr("Waydroid Help ❓>")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -121,7 +119,7 @@ MainView {
 
             ListItem {
                   Label {
-                      text: "Uninstall Waydroid 🗑>"
+                      text: i18n.tr("Uninstall Waydroid 🗑>")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -151,7 +149,7 @@ MainView {
                   id: dialogueHide
                   title: "Show/Hide apps"
                   Label {
-                    text: "Swipe on the listed apps to either hide them(bin) or show them(plus) in the Appdrawer. This will NOT install or uninstall the selected app. Reload the Appdrawer for the changes to take effect."
+                    text: i18n.tr("Swipe on the listed apps to either hide them(bin) or show them(plus) in the Appdrawer. This will NOT install or uninstall the selected app. Reload the Appdrawer for the changes to take effect.")
                     wrapMode: Text.Wrap
                   }
 
@@ -226,7 +224,7 @@ MainView {
         anchors.fill: parent
         header: PageHeader {
             id: header2
-            title: i18n.tr('Waydroid Stop')
+            title: i18n.tr("Waydroid Stop")
         }
         Label {
           id: stopappExplain
@@ -234,7 +232,7 @@ MainView {
           anchors.topMargin: 5
           anchors.horizontalCenter: parent.horizontalCenter
           width: parent.width * 0.9
-          text: 'The "Waydroid Stop" app allows you to easily stop Waydroid without entering the terminal. Once you press "Add" a new icon will appear in your appdrawer. Pressing this icon will stop Waydroid if it has crashed or anything else went wrong. If you open any of your Android apps, waydroid will start automaticly again.'
+          text: i18n.tr("The 'Waydroid Stop app' allows you to easily stop Waydroid without entering the terminal. Once you press 'Add' a new icon will appear in your appdrawer. Pressing this icon will stop Waydroid if it has crashed or anything else went wrong. If you open any of your Android apps, waydroid will start automaticly again.")
           font.pointSize: 25
           wrapMode: Text.WordWrap
         }
@@ -284,7 +282,7 @@ MainView {
       anchors.fill: parent
       header: PageHeader {
           id: header3
-          title: i18n.tr('Waydroid Help')
+          title: i18n.tr("Waydroid Help")
       }
 
         CenteredLabel {
@@ -312,12 +310,12 @@ MainView {
           anchors.right: parent.right
 
 
-          text: "<a href='waydroid -h'>waydroid -h</a>, --help show this help message and exit <br><br>" +
+          text: i18n.tr("<a href='waydroid -h'>waydroid -h</a>, --help show this help message and exit <br><br>" +
                 "<a href='waydroid -V'>waydroid -V</a>, --version show program's version number and exit <br><br>" +
                 "<a href='waydroid -l LOG'>waydroid -l LOG</a>, --log LOG path to log file <br><br>" +
                 "<a href='waydroid --details-to-stdout'>waydroid --details-to-stdout</a> print details (e.g. build output) to stdout, instead of writing to the log <br><br>" +
                 "<a href='waydroid -v'>waydroid -v</a>, --verbose write even more to the logfiles (this may reduce performance) <br><br>" +
-                "<a href='waydroid -q'>waydroid -q</a>, --quiet do not output any log messages"
+                "<a href='waydroid -q'>waydroid -q</a>, --quiet do not output any log messages")
           textSize: Label.Large
           textFormat: Text.RichText
           wrapMode: Text.WrapAtWordBoundaryOrAnywhere
@@ -336,12 +334,12 @@ MainView {
               id: dialogueCopy
               title: "Copied"
               Label {
-                text: "You copied a command to your clipboard. You can now paste and use it in the terminal app."
+                text: i18n.tr("You copied a command to your clipboard. You can now paste and use it in the terminal app.")
                 wrapMode: Text.Wrap
               }
 
               Button {
-                  text: "ok"
+                  text: i18n.tr("Ok")
                   color: "green"
                   onClicked: PopupUtils.close(dialogueCopy)
               }

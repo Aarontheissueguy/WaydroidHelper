@@ -25,7 +25,7 @@ Page {
             anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.9
-            text: 'Press "start" to uninstall WayDroid.'
+            text: i18n.tr("Press 'start' to uninstall WayDroid.")
             font.pointSize: 25
             wrapMode: Text.WordWrap
         }
@@ -35,7 +35,7 @@ Page {
             anchors.topMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             color: "green"
-            text: "start"
+            text: i18n.tr("Start")
             onClicked: {
                 startButton.visible = false
                 startButtonFake.visible = true
@@ -49,7 +49,7 @@ Page {
             anchors.topMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             color: "gray"
-            text: "running"
+            text: i18n.tr("Running")
             onClicked: console.log("uninstaller is running")
         }
     }
@@ -60,7 +60,7 @@ Page {
             id: passPrompt
             title: "Password"
             Label {
-                text: "Enter your password:"
+                text: i18n.tr("Enter your password:")
                 wrapMode: Text.Wrap
             }
             TextField {
@@ -70,7 +70,7 @@ Page {
             }
 
             Button {
-                text: "ok"
+                text: i18n.tr("Ok")
                 color: "green"
                 onClicked: {
                     PopupUtils.close(passPrompt)

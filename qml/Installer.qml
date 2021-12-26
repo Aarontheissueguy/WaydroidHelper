@@ -25,7 +25,7 @@ Page {
             anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.9
-            text: 'By pressing "start" the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! Once Waydroid is installed, your device will restart automatically. I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.'
+            text: i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! Once Waydroid is installed, your device will restart automatically. I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.")
             font.pointSize: 25
             wrapMode: Text.WordWrap
         }
@@ -35,7 +35,7 @@ Page {
             anchors.topMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             color: "green"
-            text: "start"
+            text: i18n.tr("Start")
             onClicked: {
                 startButton.visible = false
                 startButtonFake.visible = true
@@ -49,7 +49,7 @@ Page {
             anchors.topMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             color: "gray"
-            text: "running"
+            text: i18n.tr("Running")
             onClicked: console.log("Installer is running")
         }
     }
@@ -59,7 +59,7 @@ Page {
             id: dialogueInstall
             title: "Disclaimer!"
             Label {
-                text: "You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!"
+                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!")
                 wrapMode: Text.Wrap
             }
 
@@ -69,7 +69,7 @@ Page {
                 onClicked: PopupUtils.close(dialogueInstall)
             }
             Button {
-                text: "cancel"
+                text: i18n.tr("Cancel")
                 color: "green"
                 onClicked: {
                     PopupUtils.close(dialogueInstall)
@@ -88,7 +88,7 @@ Page {
             id: passPrompt
             title: "Password"
             Label {
-                text: "Enter your password:"
+                text: i18n.tr("Enter your password:")
                 wrapMode: Text.Wrap
             }
             TextField {
@@ -98,7 +98,7 @@ Page {
             }
 
             Button {
-                text: "ok"
+                text: i18n.tr("Ok")
                 color: "green"
                 onClicked: {
                     PopupUtils.close(passPrompt)
