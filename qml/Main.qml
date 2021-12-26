@@ -61,13 +61,26 @@ MainView {
   }
 
         Column {
-          anchors.top: header0.bottom
-          anchors.bottom: parent.bottom
-          anchors.left: parent.left
-          anchors.right: parent.right
-          ListItem {
+            anchors.top: header0.bottom
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            ListItem {
                 Label {
-                    text: "Show/Hide apps >"
+                    text: "Install Waydroid 📲>"
+                    anchors.centerIn: parent
+                    font.pointSize: 35
+                    wrapMode: Text.WordWrap
+                }
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("Installer.qml"))
+
+                }
+
+            }
+            ListItem {
+                Label {
+                    text: "Show/Hide apps 🙈>"
                     anchors.centerIn: parent
                     font.pointSize: 35
                     wrapMode: Text.WordWrap
@@ -81,7 +94,7 @@ MainView {
             }
             ListItem {
                   Label {
-                      text: '"Waydroid Stop" app >'
+                      text: '"Waydroid Stop" app 🛑>'
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -94,13 +107,27 @@ MainView {
               }
             ListItem {
                   Label {
-                      text: "Waydroid Help >"
+                      text: "Waydroid Help ❓>"
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
                   }
                   onClicked: {
                       pageStack.push(page3)
+
+                  }
+
+              }
+
+            ListItem {
+                  Label {
+                      text: "Uninstall Waydroid 🗑>"
+                      anchors.centerIn: parent
+                      font.pointSize: 35
+                      wrapMode: Text.WordWrap
+                  }
+                  onClicked: {
+                      pageStack.push(Qt.resolvedUrl("Uninstaller.qml"))
 
                   }
 

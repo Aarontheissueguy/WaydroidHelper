@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 06:54+0000\n"
+"POT-Creation-Date: 2021-12-26 00:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#: ../qml/Installer.qml:14
+msgid "Install Waydroid"
+msgstr ""
+
 #: ../qml/Main.qml:46 waydroidhelper.desktop.in.h:1
 msgid "Waydroid Helper"
 msgstr ""
@@ -57,20 +61,24 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../qml/Main.qml:119
+#: ../qml/Main.qml:146
 msgid "Show/Hide"
 msgstr ""
 
-#: ../qml/Main.qml:202
+#: ../qml/Main.qml:229
 msgid "Waydroid Stop"
 msgstr ""
 
-#: ../qml/Main.qml:260
+#: ../qml/Main.qml:287
 msgid "Waydroid Help"
 msgstr ""
 
-#: ../qml/Main.qml:268
+#: ../qml/Main.qml:295
 msgid ""
 "<b>You need to run these commands in the terminal app. Tap a command to copy "
 "it to the clipboard.</b><br><br>"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:14
+msgid "Uninstall Waydroid"
 msgstr ""
