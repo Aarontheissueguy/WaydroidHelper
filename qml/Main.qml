@@ -157,7 +157,7 @@ MainView {
 
                   Button {
                       color: "green"
-                      text: "ok"
+                      text: i18n.tr ("Ok")
                       onClicked: PopupUtils.close(dialogueHide)
                   }
 
@@ -255,7 +255,7 @@ MainView {
           anchors.left: parent.left
           anchors.leftMargin: parent.width / 8
           color: "red"
-          text: "Remove"
+          text: i18n.tr ("Remove")
           onClicked: {
             python.call('stopapp.remove', [], function(returnValue) {
                 console.log('create was executed');
@@ -268,7 +268,7 @@ MainView {
           anchors.right: parent.right
           anchors.rightMargin: parent.width / 8
           color: "green"
-          text: "Add"
+          text: i18n.tr ("Add")
           onClicked: {
             python.call('stopapp.create', [], function(returnValue) {
                 console.log('create was executed');
