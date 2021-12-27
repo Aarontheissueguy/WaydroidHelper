@@ -19,15 +19,22 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        
+        ActivityIndicator {
+            id: activity
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: parent.height / 15
+        }
         Label {
             id: content
-            anchors.topMargin: 5
+            anchors.top: (activity.running == true) ? activity.bottom : parent.top
+            anchors.topMargin: (activity.running == true) ? parent.height / 15 : parent.height / 25
             anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width * 0.9
+            width: parent.width / 1.5
+            horizontalAlignment: Text.AlignHCenter
             text: i18n.tr("Press 'start' to uninstall WayDroid.")
             font.pointSize: 25
-            wrapMode: Text.WordWrap
+            wrapMode: Text.Wrap
         }
         Button {
             id: startButton
@@ -39,6 +46,7 @@ Page {
             onClicked: {
                 startButton.visible = false
                 startButtonFake.visible = true
+                activity.running = true
                 PopupUtils.open(passwordPrompt)
             }
         }

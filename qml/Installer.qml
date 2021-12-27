@@ -12,22 +12,42 @@ Page {
         id: header
         title: i18n.tr("Install Waydroid")
         opacity: 1
+        trailingActionBar {
+            actions: [
+            Action {
+                iconName: "google-plus-symbolic"
+                text: i18n.tr("GAPPS")
+                onTriggered: PopupUtils.open(gapps)
+                
+            }
+        ]
+        }
     }
+
     MainView {
         anchors.top: header.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         Component.onCompleted: PopupUtils.open(dialogInstall)
-        
+
+        ActivityIndicator {
+            id: activity
+            anchors.top: parent.top
+            anchors.topMargin: parent.height / 15
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+            
         Label {
             id: content
-            anchors.topMargin: 5
+            anchors.top: (activity.running == true) ? activity.bottom : parent.top
+            anchors.topMargin:(activity.running == true) ? parent.height / 15 : parent.height / 25
             anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width * 0.9
+            horizontalAlignment: Text.AlignHCenter
+            width: parent.width / 1.5
             text: i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! Once Waydroid is installed, your device will restart automatically. I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.")
             font.pointSize: 25
-            wrapMode: Text.WordWrap
+            wrapMode: Text.Wrap
         }
         Button {
             id: startButton
@@ -39,6 +59,7 @@ Page {
             onClicked: {
                 startButton.visible = false
                 startButtonFake.visible = true
+                activity.running = true
                 PopupUtils.open(passwordPrompt)
             }
         }
@@ -53,6 +74,8 @@ Page {
             onClicked: console.log("Installer is running")
         }
     }
+
+    property var gAPPS: false
     Component {
         id: dialogInstall
         Dialog {
@@ -102,7 +125,7 @@ Page {
                 color: "green"
                 onClicked: {
                     PopupUtils.close(passPrompt)
-                    python.call('installer.install', [password.text], function(returnValue) {
+                    python.call('installer.install', [password.text, gAPPS], function(returnValue) {
                         console.log('test was executed');
                     })
                     
@@ -113,7 +136,40 @@ Page {
 
         }
     }
+    
+    Component {
+        id: gapps
+        Dialog {
+            id: gappsPromt
+            title: "Google Apps"
+            Label {
+                text: i18n.tr("You can install a special version of Waydroid that comes with google apps. (I personally do not recommend this as it will result in worse privacy.)")
+                wrapMode: Text.Wrap
+            }
 
+            Button {
+                text: i18n.tr("Enable GAPPS")
+                color: "red"
+                onClicked: {
+                    gAPPS = true
+                    PopupUtils.close(gappsPromt)
+                                       
+                
+                }
+
+            }
+            Button {
+                text: i18n.tr("Cancel")
+                color: "green"
+                onClicked: {
+                    PopupUtils.close(gappsPromt)
+                    
+                
+                }
+
+            }
+        }
+    }
     Python {
         id: python
         Component.onCompleted: {

@@ -8,7 +8,7 @@ sys.path.append('../deps')
 import pexpect
 
 class Installer:
-    def install(self,password):
+    def install(self,password,gAPPS):
         
         os.chdir("/home/phablet")
         
@@ -40,16 +40,20 @@ class Installer:
 
         #Initializing waydroid (downloading lineage)
         def download():
-            print("Initializing waydroid (downloading lineage)")
-            pyotherside.send('whatState',"=> downloaging LineageOS (This may take a while)")
-            time.sleep(3)
-            child.sendline("sudo waydroid init")
-        
+
+            if gAPPS == True:
+                print("Initializing waydroid wit GAPPS (downloading lineage)")
+                pyotherside.send('whatState',"=> downloaging LineageOS with GAPPS (This may take a while)")
+                child.sendline("sudo waydroid init -s GAPPS")
+            else:
+                print("Initializing waydroid (downloading lineage)")
+                pyotherside.send('whatState',"=> downloaging LineageOS (This may take a while)")
+                child.sendline("sudo waydroid init")
         
         def dlstatus():
             print("Download status running")
             run = True
-
+            time.sleep(5)
             while run:
                 time.sleep(1)
                 size = 0
@@ -78,8 +82,22 @@ class Installer:
         trd1.start()
         trd2.start()
 
+        #fixWindowreopen 
+        try:
+            child.expect('root.*', timeout=10000)
+            print("trying to install window fix")
+            pyotherside.send('whatState',"=> Installing aditional fixes")
+            child.sendline("ubports-qa install xenial_-_fixwindowreopen")
+            child.expect(["\\[[a-zA-Z]/[a-zA-Z]\\]","root.*"])
+            child.sendline("y")
+            child.expect(["\\[[a-zA-Z]/[a-zA-Z]\\]","root.*"])
+            child.sendline("y")
+        except Exception as e:
+            print("Couldnt install the window fix for the following reason:")
+            print(e)
+
         #reboot
-        child.expect('root.*', timeout=10000)
+        child.expect('root.*', timeout=500)
         print("reboot")
         pyotherside.send('whatState',"=> rebooting")
         child.sendline("reboot")
@@ -91,14 +109,6 @@ class Installer:
 
         pyotherside.send('whatState',"=> I AM ROOT")
         
-        '''
-        sudo -s
-        sudo mount -o remount,rw /
-        sudo apt update 
-        sudo apt install waydroid -y
-        sudo waydroid init 
-        reboot
-        '''
         return ""
     
     def uninstall(self, password):

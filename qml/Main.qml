@@ -48,11 +48,13 @@ MainView {
             iconName: "info"
             text: i18n.tr("About")
             onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
+            
         },
         Action {
             iconName: "dialog-question-symbolic"
             text: i18n.tr("Help")
             onTriggered: pageStack.push(Qt.resolvedUrl("Help.qml"))
+            
         }
       ]
     }
