@@ -1,6 +1,13 @@
 # Waydroid Helper
 
-A collection of tools that help you to use Waydroid.
+A collection of tools that help you to use Waydroid on UbuntuTouch.
+Current features:
+* Install/Uninstall WayDroid
+* Hide unwanted apps
+* A "Stop App"
+* Acces to help resources
+
+Translations can be submitted here: https://poeditor.com/join/project?hash=DIES6h7HNF
 
 ## License
 
