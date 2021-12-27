@@ -64,7 +64,7 @@ Page {
             }
 
             Button {
-                text: "I understand the risk"
+                text: i18n.tr ("I understand the risk")
                 color: "red"
                 onClicked: PopupUtils.close(dialogueInstall)
             }

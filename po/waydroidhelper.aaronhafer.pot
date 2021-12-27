@@ -8,9 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-
-"POT-Creation-Date: 2021-12-26 21:09+0000\n"
-
+"POT-Creation-Date: 2021-12-27 04:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +102,10 @@ msgid ""
 "though)!"
 msgstr ""
 
+#: ../qml/Installer.qml:67
+msgid "I understand the risk"
+msgstr ""
+
 #: ../qml/Installer.qml:72
 msgid "Cancel"
 msgstr ""
@@ -112,7 +114,8 @@ msgstr ""
 msgid "Enter your password:"
 msgstr ""
 
-#: ../qml/Installer.qml:101 ../qml/Main.qml:342 ../qml/Uninstaller.qml:73
+#: ../qml/Installer.qml:101 ../qml/Main.qml:158 ../qml/Main.qml:342
+#: ../qml/Uninstaller.qml:73
 msgid "Ok"
 msgstr ""
 
@@ -162,6 +165,14 @@ msgid ""
 "Pressing this icon will stop Waydroid if it has crashed or anything else "
 "went wrong. If you open any of your Android apps, waydroid will start "
 "automaticly again."
+msgstr ""
+
+#: ../qml/Main.qml:256
+msgid "Remove"
+msgstr ""
+
+#: ../qml/Main.qml:269
+msgid "Add"
 msgstr ""
 
 #: ../qml/Main.qml:285
