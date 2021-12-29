@@ -8,6 +8,7 @@ Current features:
 * Acces to help resources
 
 Translations can be submitted here: https://poeditor.com/join/project?hash=DIES6h7HNF
+
 Donations will go towards a testing device: https://www.paypal.com/paypalme/AaronTheIssueGuy
 
 ## License
