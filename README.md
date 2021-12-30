@@ -9,7 +9,7 @@ Current features:
 
 Translations can be submitted here: https://poeditor.com/join/project?hash=DIES6h7HNF
 
-Donations will go towards a testing device: https://www.paypal.com/paypalme/AaronTheIssueGuy
+Donations: https://www.paypal.com/paypalme/AaronTheIssueGuy
 
 ## License
 
