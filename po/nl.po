@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the waydroidhelper.aaronhafer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: waydroidhelper.aaronhafer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-27 15:36+0000\n"
+"PO-Revision-Date: 2022-01-12 21:13+0100\n"
+"Last-Translator: Sander Klootwijk <sander.klootwijk@tutanota.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: ../qml/About.qml:8 ../qml/Main.qml:49
+msgid "About"
+msgstr "Over"
+
+#: ../qml/About.qml:32
+msgid "WayDroid Helper"
+msgstr "WayDroid Helper"
+
+#: ../qml/About.qml:50
+msgid "Version: "
+msgstr "Versie: "
+
+#: ../qml/About.qml:58
+msgid "A Tweak tool application for WayDroid on Ubuntu Touch."
+msgstr "Een Tweak tool applicatie voor WayDroid op Ubuntu Touch."
+
+#. TRANSLATORS: Please make sure the URLs are correct
+#: ../qml/About.qml:67
+msgid ""
+"This program is free software: you can redistribute it and/or modify it under "
+"the terms of the GNU General Public License as published by the Free Software "
+"Foundation, either version 3 of the License, or (at your option) any later "
+"version. This program is distributed in the hope that it will be useful, but "
+"WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the <a href='https://www.gnu.org/"
+"licenses/gpl-3.0.en.html'>GNU General Public License</a> for more details."
+msgstr ""
+"Dit programma is vrije software: je mag het herdistribueren en/of wijzigen "
+"onder de voorwaarden van de GNU Algemene Publieke Licentie zoals gepubliceerd "
+"door de Free Software Foundation, onder versie 3 van de Licentie of (naar jouw "
+"keuze) elke latere versie. Dit programma is gedistribueerd in de hoop dat het "
+"nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete "
+"garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN "
+"SPECIFIEK DOEL. Zie de <a href=‘https://www.gnu.org/licenses/gpl-3.0.nl."
+"html’>GNU Algemene Publike Licentie</a> voor meer details."
+
+#: ../qml/About.qml:76
+msgid "DONATE"
+msgstr "DONEREN"
+
+#: ../qml/About.qml:76
+msgid "ISSUES"
+msgstr "PROBLEMEN"
+
+#: ../qml/About.qml:76
+msgid "SOURCE"
+msgstr "BRONCODE"
+
+#: ../qml/About.qml:86
+msgid "Copyright"
+msgstr "Copyright"
+
+#: ../qml/About.qml:95
+msgid "General contributions: "
+msgstr "Algemene bijdragen: "
+
+#: ../qml/Help.qml:13 ../qml/Main.qml:55
+msgid "Help"
+msgstr "Help"
+
+#: ../qml/Installer.qml:13
+msgid "Install Waydroid"
+msgstr "Installeer Waydroid"
+
+#: ../qml/Installer.qml:19
+msgid "GAPPS"
+msgstr "GAPPS"
+
+#: ../qml/Installer.qml:48
+msgid ""
+"By pressing 'start' the installation will, well... start. The installer will "
+"let you know what it is doing at the moment. Be patient! The installation may "
+"take a while. Do not close the app during the installation! Once Waydroid is "
+"installed, your device will restart automatically. I reccomend to disable "
+"screen suspension in the settings to keep the screen always on without "
+"touching it."
+msgstr ""
+"Door op 'start' te drukken zal de installatie, tja... beginnen. Het "
+"installatieprogramma laat je weten wat het op dit moment doet. Wees geduldig! "
+"De installatie kan even duren. Sluit de app niet tijdens de installatie! Zodra "
+"Waydroid is geïnstalleerd, wordt je apparaat automatisch opnieuw opgestart. Ik "
+"raad aan om het vergrendelen van het scherm bij inactiviteit, uit te schakelen "
+"in de instellingen om het scherm altijd aan te houden zonder het aan te hoeven "
+"raken."
+
+#: ../qml/Installer.qml:58 ../qml/Uninstaller.qml:45
+msgid "Start"
+msgstr "Start"
+
+#: ../qml/Installer.qml:73 ../qml/Uninstaller.qml:60
+msgid "Running"
+msgstr "Bezig"
+
+#: ../qml/Installer.qml:85
+msgid ""
+"You are about to use an experimental Waydroid installer! <br> Supported "
+"devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * "
+"Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> There "
+"is absolutely no warranty for this to work! Do not use this installer if you "
+"dont want to risk to brick your device (,which is highly unlikely though)!"
+msgstr ""
+"Je staat op het punt om een experimenteel Waydroid-installatieprogramma te "
+"gebruiken! <br> Ondersteunde apparaten (✔️ = getest): <br> * VollaPhone ✔️ (X) "
+"<br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone "
+"3 (+) <br> * Pixel 3a <br> Er is absoluut geen garantie dat dit werkt! Gebruik "
+"dit installatieprogramma niet als je het risico wilt lopen om je apparaat te "
+"'bricken' (wat echter zeer onwaarschijnlijk is)!"
+
+#: ../qml/Installer.qml:90
+msgid "I understand the risk"
+msgstr "Ik begrijp het risico"
+
+#: ../qml/Installer.qml:95 ../qml/Installer.qml:162
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../qml/Installer.qml:114 ../qml/Uninstaller.qml:71
+msgid "Enter your password:"
+msgstr "Voer je wachtwoord in:"
+
+#: ../qml/Installer.qml:124 ../qml/Main.qml:160 ../qml/Main.qml:344
+#: ../qml/Uninstaller.qml:81
+msgid "Ok"
+msgstr "Oké"
+
+#: ../qml/Installer.qml:146
+msgid ""
+"You can install a special version of Waydroid that comes with google apps. (I "
+"personally do not recommend this as it will result in worse privacy.)"
+msgstr ""
+"Je kunt een speciale versie van Waydroid installeren die met google apps "
+"geleverd wordt. (Ik raad dit persoonlijk niet aan omdat dit zal resulteren in "
+"een slechtere privacy.)"
+
+#: ../qml/Installer.qml:151
+msgid "Enable GAPPS"
+msgstr "GAPPS inschakelen"
+
+#: ../qml/Main.qml:44 waydroidhelper.desktop.in.h:1
+msgid "Waydroid Helper"
+msgstr "Waydroid Helper"
+
+#: ../qml/Main.qml:70
+msgid "Install Waydroid 📲>"
+msgstr "Installeer Waydroid 📲>"
+
+#: ../qml/Main.qml:83
+msgid "Show/Hide apps 🙈>"
+msgstr "Toon/Verberg apps 🙈>"
+
+#: ../qml/Main.qml:97
+msgid "Waydroid Stop app 🛑>"
+msgstr "Waydroid Stop app 🛑>"
+
+#: ../qml/Main.qml:110
+msgid "Waydroid Help ❓>"
+msgstr "Waydroid Help ❓>"
+
+#: ../qml/Main.qml:124
+msgid "Uninstall Waydroid 🗑>"
+msgstr "Verwijder Waydroid 🗑>"
+
+#: ../qml/Main.qml:146
+msgid "Show/Hide"
+msgstr "Toon/Verberg"
+
+#: ../qml/Main.qml:154
+msgid ""
+"Swipe on the listed apps to either hide them(bin) or show them(plus) in the "
+"Appdrawer. This will NOT install or uninstall the selected app. Reload the "
+"Appdrawer for the changes to take effect."
+msgstr ""
+"Veeg over de apps in de lijst om ze te verbergen (prullenbak) of toon ze "
+"(plus) in de App-lade. Hiermee wordt de geselecteerde app NIET geïnstalleerd "
+"of verwijderd. Laad de App-lade opnieuw zodat de wijzigingen van kracht worden."
+
+#: ../qml/Main.qml:229
+msgid "Waydroid Stop"
+msgstr "Waydroid Stop"
+
+#: ../qml/Main.qml:237
+msgid ""
+"The 'Waydroid Stop app' allows you to easily stop Waydroid without entering "
+"the terminal. Once you press 'Add' a new icon will appear in your appdrawer. "
+"Pressing this icon will stop Waydroid if it has crashed or anything else went "
+"wrong. If you open any of your Android apps, waydroid will start automaticly "
+"again."
+msgstr ""
+"Met de 'Waydroid Stop-app' kun je Waydroid eenvoudig stoppen zonder de "
+"terminal te gebruiken. Zodra je op 'Toevoegen' drukt, verschijnt er een nieuw "
+"pictogram in je app-lade. Als je op dit pictogram tikt, wordt Waydroid gestopt "
+"als het is gecrasht of als er iets anders mis is gegaan. Als je een van je "
+"Android-apps opent, start waydroid automatisch opnieuw."
+
+#: ../qml/Main.qml:258
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: ../qml/Main.qml:271
+msgid "Add"
+msgstr "Toevoegen"
+
+#: ../qml/Main.qml:287
+msgid "Waydroid Help"
+msgstr "Waydroid Help"
+
+#: ../qml/Main.qml:295
+msgid ""
+"<b>You need to run these commands in the terminal app. Tap a command to copy "
+"it to the clipboard.</b><br><br>"
+msgstr ""
+"<b>Je moet deze opdrachten uitvoeren in de terminal-app. Tik op een opdracht "
+"om deze naar het klembord te kopiëren.</b><br><br>"
+
+#: ../qml/Main.qml:315
+msgid ""
+"<a href='waydroid -h'>waydroid -h</a>, --help show this help message and exit "
+"<br><br><a href='waydroid -V'>waydroid -V</a>, --version show program's "
+"version number and exit <br><br><a href='waydroid -l LOG'>waydroid -l LOG</a>, "
+"--log LOG path to log file <br><br><a href='waydroid --details-to-"
+"stdout'>waydroid --details-to-stdout</a> print details (e.g. build output) to "
+"stdout, instead of writing to the log <br><br><a href='waydroid -v'>waydroid -"
+"v</a>, --verbose write even more to the logfiles (this may reduce performance) "
+"<br><br><a href='waydroid -q'>waydroid -q</a>, --quiet do not output any log "
+"messages"
+msgstr ""
+"<a href='waydroid -h'>waydroid -h</a>, --help toon dit helpbericht en sluit af "
+"<br><br><a href='waydroid -V'>waydroid -V</a>, --version toon het versienummer "
+"van het programma en sluit af <br><br><a href='waydroid -l LOG'>waydroid -l "
+"LOG</a>, --log LOG pad naar logbestand <br><br><a href='waydroid --details-to-"
+"stdout'>waydroid --details-to-stdout</a> print details (bijv. build output) "
+"naar stdout, in plaats van naar het logboek te schrijven <br><br><a "
+"href='waydroid -v'>waydroid -v</a>, --verbose schrijf nog meer naar de "
+"logbestanden (dit kan de prestaties verminderen) <br><br><a href='waydroid -"
+"q'>waydroid -q</a>, --quiet schrijf geen logberichten"
+
+#: ../qml/Main.qml:339
+msgid ""
+"You copied a command to your clipboard. You can now paste and use it in the "
+"terminal app."
+msgstr ""
+"Je hebt een commando gekopieerd naar je klembord. Je kunt het nu plakken en "
+"gebruiken in de terminal-app."
+
+#: ../qml/Uninstaller.qml:14
+msgid "Uninstall Waydroid"
+msgstr "Verwijder Waydroid"
+
+#: ../qml/Uninstaller.qml:35
+msgid "Press 'start' to uninstall WayDroid."
+msgstr "Klik op ‘start’ om WayDroid te verwijderen."
