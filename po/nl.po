@@ -74,7 +74,7 @@ msgstr "Actief"
 
 #: ../qml/Installer.qml:85
 msgid "You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!"
-msgstr "Je staat op het punt om de experimentele WayDroid-installatiewizard te starten! <br> Ondersteunde apparaten (✔️ = getest): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> Er is echter geen garantie dat WayDroid gaat werken! Gebruik de installatiewizard NIET als je bang bent voor een gebrickt apparaat (hoewel de kans heel erg klein is)!\n"
+msgstr "Je staat op het punt om de experimentele WayDroid-installatiewizard te starten! <br> Ondersteunde apparaten (✔️ = getest): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> Er is echter geen garantie dat WayDroid gaat werken! Gebruik de installatiewizard NIET als je bang bent voor een gebrickt apparaat (hoewel de kans heel erg klein is)!"
 ""
 
 #: ../qml/Installer.qml:90

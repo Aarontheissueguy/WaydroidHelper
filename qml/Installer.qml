@@ -82,7 +82,7 @@ Page {
             id: dialogueInstall
             title: "Disclaimer!"
             Label {
-                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note 9 (Pro/Pro Max/S) <br> * Fairphone 3(+) <br> * Pixel 3a <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!")
+                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note (9 Pro/9 Pro Max) <br> * Fairphone 3(+) <br> * Pixel (3a/XL/2 XL) <br> * MI A2 (wifi does not work with GAPPS) <br> * Poco F1 <br> * SHIFT6mq <br> These devices have partial support: <br> * Pixel 3a XL (no video playback) <br> * Pinephone (unstable) <br> * Redmi Note 9 S (no external storage) <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!")
                 wrapMode: Text.Wrap
             }
 
