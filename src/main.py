@@ -24,7 +24,7 @@ class Appdrawer:
                 wdapplist.append(i)
             else:
                 pass
-        wdapplist.remove("waydroidhelper.aaronhafer_waydroidhelper_2.0.0.desktop")
+        wdapplist.remove("waydroidhelper.aaronhafer_waydroidhelper_2.0.1.desktop")
 
 
         return wdapplist
