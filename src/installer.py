@@ -82,22 +82,8 @@ class Installer:
         trd1.start()
         trd2.start()
 
-        #fixWindowreopen 
-        try:
-            child.expect('root.*', timeout=10000)
-            print("trying to install window fix")
-            pyotherside.send('whatState',"=> Installing aditional fixes")
-            child.sendline("ubports-qa install xenial_-_fixwindowreopen")
-            child.expect(["\\[[a-zA-Z]/[a-zA-Z]\\]","root.*"])
-            child.sendline("y")
-            child.expect(["\\[[a-zA-Z]/[a-zA-Z]\\]","root.*"])
-            child.sendline("y")
-        except Exception as e:
-            print("Couldnt install the window fix for the following reason:")
-            print(e)
-
         #reboot
-        child.expect('root.*', timeout=500)
+        child.expect('root.*', timeout=10000)
         print("reboot")
         pyotherside.send('whatState',"=> rebooting")
         child.sendline("reboot")
