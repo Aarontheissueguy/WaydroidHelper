@@ -25,7 +25,10 @@ class Appdrawer:
         cleannames = []
 
         for i in wdapplist:
-            with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
+            abs_path = os.path.join("/home/phablet/.local/share/applications/", i)
+            if not os.path.isfile(abs_path):
+                pass
+            with open(abs_path, "r") as f:
                 re_name = re.search(r"Name=(.*)", f.read())
                 if re_name:
                     appname = re_name.group(1)
@@ -35,9 +38,13 @@ class Appdrawer:
 
     def clean_to_path(self, appname):
         wdapplist = self.return_apps()
+        abs_path = os.path.join("/home/phablet/.local/share/applications/", i)
         path = None
         for i in wdapplist:
-            with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
+            abs_path = os.path.join("/home/phablet/.local/share/applications/", i)
+            if not os.path.isfile(abs_path):
+                pass
+            with open(abs_path, "r") as f:
                 re_name = re.search(r"Name=%s" % appname, f.read())
                 if re_name:
                     path = i
@@ -47,6 +54,8 @@ class Appdrawer:
     def show(self, appname):
         path = self.clean_to_path(appname)
         abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
+        if not os.path.isfile(abs_path):
+            return
         with open(abs_path, "r") as f:
             content = f.read()
         re_status = re.search(r"NoDisplay=(true|false)?", content)
@@ -61,6 +70,8 @@ class Appdrawer:
     def hide(self, appname):
         path = self.clean_to_path(appname)
         abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
+        if not os.path.isfile(abs_path):
+            return
         with open(abs_path, "r") as f:
             content = f.read()
         re_status = re.search(r"NoDisplay=(true|false)?", content)
