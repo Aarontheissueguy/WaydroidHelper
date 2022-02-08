@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
-import os
+import os, re
 
 class Appdrawer:
     def return_apps(self):
@@ -30,32 +30,28 @@ class Appdrawer:
         return sorted(wdapplist)
 
     def clean(self):
-        print("hello")
         wdapplist = self.return_apps()
         cleannames = []
 
         for i in wdapplist:
             with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
-                lines = f.readlines()
-                for line in lines:
-                    if "Name=" in line:
-                        line = str(line).replace("Name=", "")
-                        cleannames.append(line)
-                    else:
-                        pass
+                re_name = re.search(r"Name=(.*)", f.read())
+                if re_name:
+                    appname = re_name.group(1)
+                    cleannames.append(appname)
 
         return cleannames
 
     def clean_to_path(self, appname):
         wdapplist = self.return_apps()
+        path = None
         for i in wdapplist:
             with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
-                lines = f.readlines()
-                for line in lines:
-                    if appname in line:
-                        return i
-                    else:
-                        pass
+                re_name = re.search(r"Name=%s" % appname, f.read())
+                if re_name:
+                    path = i
+                    break
+        return path
 
     def show(self, appname):
         path = self.clean_to_path(appname)
