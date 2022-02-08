@@ -17,17 +17,8 @@ import os, re
 
 class Appdrawer:
     def return_apps(self):
-        text = os.listdir("/home/phablet/.local/share/applications")
-        wdapplist = []
-        for i in text:
-            if "waydroid" in i and ".desktop" in i:
-                wdapplist.append(i)
-            else:
-                pass
-        wdapplist.remove("waydroidhelper.aaronhafer_waydroidhelper_2.0.3.desktop")
-
-
-        return sorted(wdapplist)
+        wdapplist = os.listdir("/home/phablet/.local/share/applications")
+        return [i for i in wdapplist if i.startswith("waydroid.") and i.endswith(".desktop")]
 
     def clean(self):
         wdapplist = self.return_apps()
