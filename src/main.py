@@ -31,7 +31,7 @@ class Appdrawer:
                     appname = re_name.group(1)
                     cleannames.append(appname)
 
-        return cleannames
+        return sorted(cleannames)
 
     def clean_to_path(self, appname):
         wdapplist = self.return_apps()
