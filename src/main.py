@@ -46,11 +46,32 @@ class Appdrawer:
 
     def show(self, appname):
         path = self.clean_to_path(appname)
-        os.system("for i in ~/.local/share/applications/" + path +"; do echo 'NoDisplay=false' >> $i; done")
-
+        abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
+        with open(abs_path, "r") as f:
+            content = f.read()
+        re_status = re.search(r"NoDisplay=(true|false)?", content)
+        if not re_status:
+            return
+        hidden = re_status.group(1) == "true"
+        if hidden:
+            content = re.sub(r"NoDisplay=true", "NoDisplay=false", content)
+            with open(abs_path, "w") as f:
+                f.write(content)
+    
     def hide(self, appname):
         path = self.clean_to_path(appname)
-        os.system("for i in ~/.local/share/applications/" + path +"; do echo 'NoDisplay=true' >> $i; done")
+        abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
+        with open(abs_path, "r") as f:
+            content = f.read()
+        re_status = re.search(r"NoDisplay=(true|false)?", content)
+        if not re_status:
+            content += "NoDisplay=true\n"
+        else:
+            hidden = re_status.group(1) == "true"
+            if not hidden:
+                content = re.sub("NoDisplay=false", "NoDisplay=true", content)
+        with open(abs_path, "w") as f:
+            f.write(content)
 
 appdrawer = Appdrawer()
 
@@ -59,5 +80,6 @@ class StopApp:
         with open("/home/phablet/.local/share/applications/stop-waydroid.desktop", "w") as f:
             f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/lib/waydroid/data/AppIcon.png")
     def remove(self):
-        os.system("rm /home/phablet/.local/share/applications/stop-waydroid.desktop")
+        if os.path.isfile("/home/phablet/.local/share/applications/stop-waydroid.desktop"):
+            os.remove("/home/phablet/.local/share/applications/stop-waydroid.desktop")
 stopapp = StopApp()
