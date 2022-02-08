@@ -27,7 +27,7 @@ class Appdrawer:
         wdapplist.remove("waydroidhelper.aaronhafer_waydroidhelper_2.0.3.desktop")
 
 
-        return wdapplist
+        return sorted(wdapplist)
 
     def clean(self):
         print("hello")
@@ -35,8 +35,7 @@ class Appdrawer:
         cleannames = []
 
         for i in wdapplist:
-            try:
-                f = open("/home/phablet/.local/share/applications/" + i,"r")
+            with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
                 lines = f.readlines()
                 for line in lines:
                     if "Name=" in line:
@@ -44,27 +43,19 @@ class Appdrawer:
                         cleannames.append(line)
                     else:
                         pass
-                f.close()
-            except:
-                pass
 
         return cleannames
 
     def clean_to_path(self, appname):
         wdapplist = self.return_apps()
         for i in wdapplist:
-            try:
-                f = open("/home/phablet/.local/share/applications/" + i,"r")
+            with open(os.path.join("/home/phablet/.local/share/applications/", i), "r") as f:
                 lines = f.readlines()
                 for line in lines:
                     if appname in line:
-                        f.close()
                         return i
                     else:
                         pass
-                f.close()
-            except:
-                pass
 
     def show(self, appname):
         path = self.clean_to_path(appname)
@@ -78,9 +69,8 @@ appdrawer = Appdrawer()
 
 class StopApp:
     def create(self):
-        f = open("/home/phablet/.local/share/applications/stop-waydroid.desktop", mode = "w")
-        f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/lib/waydroid/data/AppIcon.png")
-        f.close
+        with open("/home/phablet/.local/share/applications/stop-waydroid.desktop", "w") as f:
+            f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/lib/waydroid/data/AppIcon.png")
     def remove(self):
         os.system("rm /home/phablet/.local/share/applications/stop-waydroid.desktop")
 stopapp = StopApp()
