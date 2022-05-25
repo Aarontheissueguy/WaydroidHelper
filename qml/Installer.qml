@@ -82,7 +82,7 @@ Page {
             id: dialogueInstall
             title: "Disclaimer!"
             Label {
-                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices:") + i18n.tr("<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel 3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy S10<br>SHIFT6mq<br>Vollaphone (X)<br>") + i18n.tr("Other devices using Halium 9 or above may or may not work as well! <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device permenantly (,which is highly unlikely though)!")
+                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices:") + i18n.tr("<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel 3a<br>Poco F1/M2 Pro<br>Redmi Note 7/7 Pro/9S/9 Pro/9 Pro Max<br>Samsung Galaxy S10<br>SHIFT6mq<br>Vollaphone (X)<br>") + i18n.tr("Other devices using Halium 9 or above may or may not work as well! <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device permenantly (,which is highly unlikely though)!")
                 wrapMode: Text.Wrap
             }
 
