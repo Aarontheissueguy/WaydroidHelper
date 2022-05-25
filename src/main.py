@@ -38,7 +38,6 @@ class Appdrawer:
 
     def clean_to_path(self, appname):
         wdapplist = self.return_apps()
-        abs_path = os.path.join("/home/phablet/.local/share/applications/", i)
         path = None
         for i in wdapplist:
             abs_path = os.path.join("/home/phablet/.local/share/applications/", i)

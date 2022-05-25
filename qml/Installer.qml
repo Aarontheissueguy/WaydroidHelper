@@ -7,7 +7,7 @@ import io.thp.pyotherside 1.3
 import Ubuntu.Components.Popups 1.3
 
 Page {
-    id: aboutPage    
+    id: aboutPage
     header: PageHeader {
         id: header
         title: i18n.tr("Install Waydroid")
@@ -18,7 +18,7 @@ Page {
                 iconName: "google-plus-symbolic"
                 text: i18n.tr("GAPPS")
                 onTriggered: PopupUtils.open(gapps)
-                
+
             }
         ]
         }
@@ -37,7 +37,7 @@ Page {
             anchors.topMargin: parent.height / 15
             anchors.horizontalCenter: parent.horizontalCenter
         }
-            
+
         Label {
             id: content
             anchors.top: (activity.running == true) ? activity.bottom : parent.top
@@ -82,7 +82,7 @@ Page {
             id: dialogueInstall
             title: "Disclaimer!"
             Label {
-                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices (✔️ = tested): <br> * VollaPhone ✔️ (X) <br> * Redmi Note 7 (Pro) <br> * Redmi Note (9 Pro/9 Pro Max) <br> * Fairphone 3(+) <br> * Pixel (3a/XL/2 XL) <br> * MI A2 (wifi does not work with GAPPS) <br> * Poco F1 <br> * SHIFT6mq <br> These devices have partial support: <br> * Pixel 3a XL (no video playback) <br> * Pinephone (unstable) <br> * Redmi Note 9 (no external storage) <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device (,which is highly unlikely though)!")
+                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices:") + i18n.tr("<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel 3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy S10<br>SHIFT6mq<br>Vollaphone (X)<br>") + i18n.tr("Other devices using Halium 9 or above may or may not work as well! <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device permenantly (,which is highly unlikely though)!")
                 wrapMode: Text.Wrap
             }
 
@@ -97,7 +97,7 @@ Page {
                 onClicked: {
                     PopupUtils.close(dialogueInstall)
                     pageStack.pop()
-                
+
                 }
 
             }
@@ -128,15 +128,15 @@ Page {
                     python.call('installer.install', [password.text, gAPPS], function(returnValue) {
                         console.log('test was executed');
                     })
-                    
-                
+
+
                 }
 
             }
 
         }
     }
-    
+
     Component {
         id: gapps
         Dialog {
@@ -153,8 +153,8 @@ Page {
                 onClicked: {
                     gAPPS = true
                     PopupUtils.close(gappsPromt)
-                                       
-                
+
+
                 }
 
             }
@@ -163,8 +163,8 @@ Page {
                 color: "green"
                 onClicked: {
                     PopupUtils.close(gappsPromt)
-                    
-                
+
+
                 }
 
             }
