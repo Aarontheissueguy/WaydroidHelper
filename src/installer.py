@@ -44,11 +44,11 @@ class Installer:
             if gAPPS == True:
                 print("Initializing waydroid wit GAPPS (downloading lineage)")
                 pyotherside.send('whatState',"=> downloaging LineageOS with GAPPS (This may take a while)")
-                child.sendline("sudo waydroid init -s GAPPS")
+                child.sendline("sudo waydroid init -s GAPPS -c https://waydroid.bardia.tech/OTA/system -v https://waydroid.bardia.tech/OTA/vendor")
             else:
                 print("Initializing waydroid (downloading lineage)")
                 pyotherside.send('whatState',"=> downloaging LineageOS (This may take a while)")
-                child.sendline("sudo waydroid init")
+                child.sendline("sudo waydroid init -c https://waydroid.bardia.tech/OTA/system -v https://waydroid.bardia.tech/OTA/vendor")
         
         def dlstatus():
             print("Download status running")
