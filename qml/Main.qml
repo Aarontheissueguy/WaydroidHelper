@@ -67,7 +67,7 @@ MainView {
             anchors.right: parent.right
             ListItem {
                 Label {
-                    text: i18n.tr("Install Waydroid >")
+                    text: i18n.tr("Install Waydroid")
                     anchors.centerIn: parent
                     font.pointSize: 35
                     wrapMode: Text.WordWrap
@@ -80,7 +80,7 @@ MainView {
             }
             ListItem {
                 Label {
-                    text: i18n.tr("Show/Hide apps >")
+                    text: i18n.tr("Show/Hide apps")
                     anchors.centerIn: parent
                     font.pointSize: 35
                     wrapMode: Text.WordWrap
@@ -94,7 +94,7 @@ MainView {
             }
             ListItem {
                   Label {
-                      text: i18n.tr("Waydroid Stop app >")
+                      text: i18n.tr("Waydroid Stop app")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -107,7 +107,7 @@ MainView {
               }
             ListItem {
                   Label {
-                      text: i18n.tr("Waydroid Help >")
+                      text: i18n.tr("Waydroid Help")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
@@ -121,7 +121,7 @@ MainView {
 
             ListItem {
                   Label {
-                      text: i18n.tr("Uninstall Waydroid >")
+                      text: i18n.tr("Uninstall Waydroid")
                       anchors.centerIn: parent
                       font.pointSize: 35
                       wrapMode: Text.WordWrap
