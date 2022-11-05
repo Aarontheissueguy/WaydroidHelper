@@ -82,13 +82,10 @@ class Installer:
         trd1.start()
         trd2.start()
 
-        #reboot
-        child.expect('root.*', timeout=10000)
-        print("reboot")
-        pyotherside.send('whatState',"=> rebooting")
-        child.sendline("reboot")
-        child.expect("root.*", timeout=180)
-        time.sleep(1000)
+        #wait for the threads to finish
+        trd1.join()
+        trd2.join()
+        child.expect("root.*", timeout=300)
         child.close()
 
 
@@ -118,13 +115,13 @@ class Installer:
         child.sendline('sudo mount -o remount,rw /')
         child.expect('root.*')
 
-        #Stop Waydroid
-        print("stopping waydroid")
-        pyotherside.send('whatState',"=> stopping Waydroid")
-        time.sleep(1.5)        
-        child.sendline('waydroid session stop')
-        child.expect('root.*')       
-
+        #Stop Waydroid Container
+        child.expect('root.*', timeout=10000)
+        print("stopping waydroid container")
+        pyotherside.send('whatState',"=> stopping waydroid container")
+        child.sendline("sudo service waydroid-container stop")
+        child.expect("root.*", timeout=180)
+     
         #Purge Waydroid
         print("purging Waydroid")
         pyotherside.send('whatState',"=> uninstalling Waydroid")
@@ -137,12 +134,6 @@ class Installer:
         time.sleep(1.5)
         child.sendline("rm -rf /var/lib/waydroid")
         child.expect('root.*')
-        
-        #reboot
-        print("reboot")
-        pyotherside.send('whatState',"=> rebooting")
-        child.sendline("reboot")
-        child.expect("root.*", timeout=240)
         time.sleep(1000)
         child.close()
 installer = Installer()
