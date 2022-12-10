@@ -128,7 +128,7 @@ class Installer:
         #Purge Waydroid
         print("purging Waydroid")
         pyotherside.send('whatState',"=> uninstalling Waydroid")
-        child.sendline("sudo apt autoremove --purge waydroid -y")
+        child.sendline("sudo apt purge --autoremove waydroid -y")
         child.expect('root.*', timeout=480)
 
         #do cleanup
