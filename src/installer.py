@@ -35,7 +35,7 @@ class Installer:
         pyotherside.send('whatState',"=> installing waydroid")
         child.sendline("sudo apt update")
         child.expect('root.*')
-        child.sendline("sudo apt install waydroid -y")
+        child.sendline("sudo apt install waydroid python3-gbinder -y")
         child.expect('root.*')
 
         #Initializing waydroid (downloading lineage)
@@ -128,7 +128,7 @@ class Installer:
         #Purge Waydroid
         print("purging Waydroid")
         pyotherside.send('whatState',"=> uninstalling Waydroid")
-        child.sendline("sudo apt purge waydroid -y")
+        child.sendline("sudo apt purge --autoremove waydroid -y")
         child.expect('root.*', timeout=480)
 
         #do cleanup
