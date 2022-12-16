@@ -8,10 +8,14 @@ sys.path.append('../deps')
 import pexpect
 
 import password_type
+import pam
 
 class Installer:
     def get_password_type(self):
         return password_type.get_password_type()
+
+    def check_password(self, password):
+        return pam.authenticate("phablet", password)
 
     def install(self,password,gAPPS):
         

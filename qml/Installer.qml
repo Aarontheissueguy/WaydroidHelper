@@ -33,6 +33,19 @@ Page {
         })
     }
 
+    function checkPassword(password) {
+        return new Promise((resolve, reject) => {
+            python.call('installer.check_password', [ password ], (result) => {
+                if (!result) {
+                    reject();
+                    return;
+                }
+
+                resolve();
+            });
+        });
+    }
+
     function showPasswordPrompt() {
         const PASSWORD_TYPE_KEYBOARD = 0;
         const PASSWORD_TYPE_NUMERIC = 1;
@@ -148,26 +161,53 @@ Page {
         Dialog {
             id: passPrompt
             title: i18n.tr("Authorization")
+
+            property bool blocked: false
+
             Label {
                 text: isPasswordNumeric ? i18n.tr("Enter your passcode:") : i18n.tr("Enter your password:")
                 wrapMode: Text.Wrap
             }
+
             TextField {
                 id: password
+                readOnly: blocked
                 placeholderText: isPasswordNumeric ? i18n.tr("passcode") : i18n.tr("password")
                 echoMode: TextInput.Password
                 inputMethodHints: installerPage.inputMethodHints
+                maximumLength: isPasswordNumeric ? 4 : 32767
+                onDisplayTextChanged: {
+                    if (password.text.length > 0) {
+                        wrongPasswordHint.visible = false;
+                    }
+                }
+            }
+
+            Label {
+                id: wrongPasswordHint
+                color: theme.palette.normal.negative
+                text: isPasswordNumeric ? i18n.tr("Incorrect passcode") : i18n.tr("Incorrect password")
+                visible: false
             }
 
             Button {
                 text: i18n.tr("Ok")
+                enabled: !blocked
                 color: "green"
                 onClicked: {
-                    PopupUtils.close(passPrompt)
-                    startInstallation(password.text);
-                    password.text = '';
+                    blocked = true;
+                    checkPassword(password.text)
+                        .then(() => {
+                            PopupUtils.close(passPrompt)
+                            startInstallation(password.text);
+                            password.text = '';
+                        })
+                        .catch(() => {
+                            wrongPasswordHint.visible = true;
+                            password.text = '';
+                            blocked = false;
+                        });
                 }
-
             }
 
         }
