@@ -27,22 +27,22 @@ class Installer:
         print("remounting filesystem to rw")
         pyotherside.send('whatState',"=> remounting filesystem as readwrite")
         time.sleep(1.5)
-        child.sendline('sudo mount -o remount,rw /')
+        child.sendline('mount -o remount,rw /')
         child.expect('root.*')
 
         #installing waydroid through apt
         print("installing waydroid through apt")
         pyotherside.send('whatState',"=> installing waydroid")
-        child.sendline("sudo apt update")
+        child.sendline("apt update")
         child.expect('root.*')
-        child.sendline("sudo apt install waydroid python3-gbinder -y")
+        child.sendline("apt install waydroid python3-gbinder -y")
         child.expect('root.*')
 
         #remounting filesystem to ro
         print("remounting filesystem to ro")
         pyotherside.send('whatState',"=> remounting filesystem as read-only")
         time.sleep(1.5)
-        child.sendline('sudo mount -o remount,ro /')
+        child.sendline('mount -o remount,ro /')
         child.expect('root.*')
 
         #Initializing waydroid (downloading lineage)
@@ -51,11 +51,11 @@ class Installer:
             if gAPPS == True:
                 print("Initializing waydroid wit GAPPS (downloading lineage)")
                 pyotherside.send('whatState',"=> downloading LineageOS with GAPPS (This may take a while)")
-                child.sendline("sudo waydroid init -s GAPPS")
+                child.sendline("waydroid init -s GAPPS")
             else:
                 print("Initializing waydroid (downloading lineage)")
                 pyotherside.send('whatState',"=> downloading LineageOS (This may take a while)")
-                child.sendline("sudo waydroid init")
+                child.sendline("waydroid init")
         
         def dlstatus():
             print("Download status running")
@@ -118,19 +118,19 @@ class Installer:
         print("remounting filesystem to rw")
         pyotherside.send('whatState',"=> remounting filesystem as readwrite")
         time.sleep(1.5)
-        child.sendline('sudo mount -o remount,rw /')
+        child.sendline('mount -o remount,rw /')
         child.expect('root.*')
 
         #Stop Waydroid Container
         print("stopping waydroid container")
         pyotherside.send('whatState',"=> stopping waydroid container")
-        child.sendline("sudo service waydroid-container stop")
+        child.sendline("service waydroid-container stop")
         child.expect("root.*", timeout=180)
      
         #Purge Waydroid
         print("purging Waydroid")
         pyotherside.send('whatState',"=> uninstalling Waydroid")
-        child.sendline("sudo apt purge --autoremove waydroid -y")
+        child.sendline("apt purge --autoremove waydroid -y")
         child.expect('root.*', timeout=480)
 
         #do cleanup
@@ -144,7 +144,7 @@ class Installer:
         print("remounting filesystem to ro")
         pyotherside.send('whatState',"=> remounting filesystem as read-only")
         time.sleep(1.5)
-        child.sendline('sudo mount -o remount,ro /')
+        child.sendline('mount -o remount,ro /')
         child.expect('root.*')
 
         child.close()
