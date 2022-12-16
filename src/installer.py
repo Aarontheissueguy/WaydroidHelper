@@ -96,7 +96,7 @@ class Installer:
 
 
 
-        pyotherside.send('whatState',"=> I AM ROOT")
+        pyotherside.send('runningStatus',"=> Installation complete!")
         
         return ""
     
@@ -146,6 +146,6 @@ class Installer:
         time.sleep(1.5)
         child.sendline('mount -o remount,ro /')
         child.expect('root.*')
-
+        pyotherside.send('runningStatus',"=> Uninstallation complete!")
         child.close()
 installer = Installer()

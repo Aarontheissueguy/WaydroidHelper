@@ -71,7 +71,11 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             color: "gray"
             text: i18n.tr("Running")
-            onClicked: console.log("Installer is running")
+            onClicked: {
+                console.log("Installer is running")
+                if( startButtonFake.color == "#008000" )
+                    pageStack.pop();
+            }
         }
     }
 
@@ -126,7 +130,6 @@ Page {
                 onClicked: {
                     PopupUtils.close(passPrompt)
                     python.call('installer.install', [password.text, gAPPS], function(returnValue) {
-                        console.log('test was executed');
                     })
 
 
@@ -185,6 +188,13 @@ Page {
                     content.text = state
                 })
 
+            python.setHandler('runningStatus',
+                function (status) {
+                    content.text = status
+                    activity.running = false
+                    startButtonFake.color = "green"
+                    startButtonFake.text = i18n.tr("OK")
+                })
         }
 
         onError: {
