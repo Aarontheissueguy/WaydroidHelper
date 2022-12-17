@@ -107,18 +107,16 @@ Page {
 
             });
 
-            python.setHandler('whatState',
-                function (state) {
+            python.setHandler('whatState', (state) => {
                     content.text = state
-                })
+                });
 
-            python.setHandler('runningStatus',
-                function (status) {
+            python.setHandler('runningStatus', (status) => {
                     content.text = status
                     activity.running = false
                     startButtonFake.color = "green"
                     startButtonFake.text = i18n.tr("OK")
-                })
+                });
 
         }
 
