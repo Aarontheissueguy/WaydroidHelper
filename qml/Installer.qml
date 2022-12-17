@@ -73,8 +73,9 @@ Page {
             text: i18n.tr("Running")
             onClicked: {
                 console.log("Installer is running")
-                if( startButtonFake.color == "#008000" )
+                if(activity.running == false){
                     pageStack.pop();
+		}
             }
         }
     }
