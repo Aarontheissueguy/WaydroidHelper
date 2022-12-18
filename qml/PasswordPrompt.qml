@@ -7,7 +7,7 @@ Dialog {
     id: passPrompt
     title: i18n.tr("Authorization")
 
-    signal password
+    signal password(string password)
     signal cancel
     property bool blocked: false
 
@@ -29,17 +29,17 @@ Dialog {
     }
 
     Label {
-        text: isPasswordNumeric ? i18n.tr("Enter your passcode:") : i18n.tr("Enter your password:")
+        text: root.isPasswordNumeric ? i18n.tr("Enter your passcode:") : i18n.tr("Enter your password:")
         wrapMode: Text.Wrap
     }
 
     TextField {
         id: password
         readOnly: blocked
-        placeholderText: isPasswordNumeric ? i18n.tr("passcode") : i18n.tr("password")
+        placeholderText: root.isPasswordNumeric ? i18n.tr("passcode") : i18n.tr("password")
         echoMode: TextInput.Password
-        inputMethodHints: installerPage.inputMethodHints
-        maximumLength: isPasswordNumeric ? 4 : 32767
+        inputMethodHints: root.inputMethodHints
+        maximumLength: root.isPasswordNumeric ? 4 : 32767
         onDisplayTextChanged: {
             if (password.text.length > 0) {
                 wrongPasswordHint.visible = false;
@@ -50,7 +50,7 @@ Dialog {
     Label {
         id: wrongPasswordHint
         color: theme.palette.normal.negative
-        text: isPasswordNumeric ? i18n.tr("Incorrect passcode") : i18n.tr("Incorrect password")
+        text: root.isPasswordNumeric ? i18n.tr("Incorrect passcode") : i18n.tr("Incorrect password")
         visible: false
     }
 
@@ -89,7 +89,7 @@ Dialog {
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../src/'));
 
-            importNames('pam', ['pam']);
+            importModule('pam', () => {});
         }
 
         onError: {

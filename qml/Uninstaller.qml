@@ -7,24 +7,41 @@ import io.thp.pyotherside 1.3
 import Ubuntu.Components.Popups 1.3
 
 Page {
-    id: aboutPage
-
+    id: uninstallerPage
     header: PageHeader {
         id: header
         title: i18n.tr("Uninstall Waydroid")
         opacity: 1
     }
+
+    property bool completed: false
+
+    function startUninstallation(password) {
+        python.call('installer.uninstall', [ password ]);
+    }
+
+    function showPasswordPrompt() {
+        if (root.inputMethodHints === null) {
+            startUninstallation('');
+            return;
+        }
+
+        PopupUtils.open(passwordPrompt);
+    }
+
     MainView {
         anchors.top: header.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+
         ActivityIndicator {
             id: activity
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.topMargin: parent.height / 15
         }
+
         Label {
             id: content
             anchors.top: (activity.running == true) ? activity.bottom : parent.top
@@ -32,69 +49,42 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width / 1.5
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Press 'start' to uninstall WayDroid.")
+            text: i18n.tr("Press 'start' to uninstall Waydroid.")
             font.pointSize: 25
             wrapMode: Text.Wrap
         }
+
         Button {
             id: startButton
+            enabled: !activity.running
             anchors.top: content.bottom
             anchors.topMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
-            color: "green"
-            text: i18n.tr("Start")
+            color: theme.palette.normal.positive
+            text: uninstallerPage.completed ? i18n.tr("Ok") : i18n.tr("Start")
             onClicked: {
-                startButton.visible = false
-                startButtonFake.visible = true
-                activity.running = true
-                PopupUtils.open(passwordPrompt)
+                if (!uninstallerPage.completed) {
+                    activity.running = true
+                    PopupUtils.open(passwordPrompt);
+                    return;
+                }
+                
+                pageStack.pop();
             }
-        }
-        Button {
-            id: startButtonFake
-            visible: false
-            anchors.top: content.bottom
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: "gray"
-            text: i18n.tr("Running")
-            onClicked: {
-		console.log("uninstaller is running")
-                if(activity.running == false){
-                    pageStack.pop();
-		}
-	    }
         }
     }
 
     Component {
         id: passwordPrompt
-        Dialog {
-            id: passPrompt
-            title: "Password"
-            Label {
-                text: i18n.tr("Enter your password:")
-                wrapMode: Text.Wrap
-            }
-            TextField {
-                id: password
-                placeholderText: "password"
-                echoMode: TextInput.Password
+
+        PasswordPrompt {
+            onPassword: {
+                startUninstallation(password);
             }
 
-            Button {
-                text: i18n.tr("Ok")
-                color: "green"
-                onClicked: {
-                    PopupUtils.close(passPrompt)
-                    python.call('installer.uninstall', [password.text], function(returnValue) {
-                    })
-                    
-                
-                }
-
+            onCancel: {
+                activity.running = false;
             }
-
         }
     }
 
@@ -103,26 +93,21 @@ Page {
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../src/'));
 
-            importNames('installer', ['installer'], function() {
-                console.log('installer module imported');
-
-            });
+            importNames('installer', ['installer'], () => {});
 
             python.setHandler('whatState', (state) => {
-                    content.text = state
-                });
+                content.text = state;
+            });
 
             python.setHandler('runningStatus', (status) => {
-                    content.text = status
-                    activity.running = false
-                    startButtonFake.color = "green"
-                    startButtonFake.text = i18n.tr("OK")
-                });
-
+                content.text = status;
+                uninstallerPage.completed = true;
+                activity.running = false;
+            });
         }
 
         onError: {
-            console.log('python error: ' + traceback);
+            console.log('python error:', traceback);
         }
     }
 }

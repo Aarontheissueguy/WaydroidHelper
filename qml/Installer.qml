@@ -24,35 +24,18 @@ Page {
 
     property var gAPPS: false
     property bool completed: false
-    property var inputMethodHints: Qt.ImhHiddenText
-    property var isPasswordNumeric: inputMethodHints & Qt.ImhDigitsOnly
 
     function startInstallation(password) {
         python.call('installer.install', [ password, gAPPS ]);
     }
 
     function showPasswordPrompt() {
-        const PASSWORD_TYPE_KEYBOARD = 0;
-        const PASSWORD_TYPE_NUMERIC = 1;
+        if (root.inputMethodHints === null) {
+            startInstallation('');
+            return;
+        }
 
-        python.call('installer.get_password_type', [], (passwordType) => {
-            const value = python.getattr(passwordType, 'value');
-
-            switch (value) {
-                case PASSWORD_TYPE_KEYBOARD:
-                    installerPage.inputMethodHints = Qt.ImhHiddenText;
-                    break;
-                case PASSWORD_TYPE_NUMERIC:
-                    installerPage.inputMethodHints = Qt.ImhHiddenText | Qt.ImhDigitsOnly;
-                    break;
-                default:
-                    // no password set, just start the installation
-                    startInstallation('');
-                    return;
-            }
-
-            PopupUtils.open(passwordPrompt);
-        });
+        PopupUtils.open(passwordPrompt);
     }
 
     MainView {
@@ -103,6 +86,7 @@ Page {
 
     Component {
         id: dialogInstall
+
         Dialog {
             id: dialogueInstall
             title: "Disclaimer!"
@@ -132,6 +116,8 @@ Page {
         id: passwordPrompt
 
         PasswordPrompt {
+            id: passPrompt
+
             onPassword: {
                 startInstallation(password);
             }
@@ -179,9 +165,7 @@ Page {
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../src/'));
 
-            importNames('installer', ['installer'], function() {
-                console.log('installer module imported');
-            });
+            importNames('installer', ['installer'], () => {});
 
             python.setHandler('whatState', (state) => {
                 content.text = state;
@@ -195,7 +179,7 @@ Page {
         }
 
         onError: {
-            console.log('python error: ' + traceback);
+            console.log('python error:', traceback);
         }
     }
 }
