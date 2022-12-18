@@ -1,0 +1,26 @@
+# Copyright 2022 Marcel Alexandru Nitan
+# https://github.com/nitanmarcel/cinny-click-packaging/blob/main/.github/workflows/build.yml
+
+name: Clickable Build
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install clickable
+        run: |
+          python3 -m pip install clickable-ut
+      - name: Build
+        run: |
+          clickable build
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: cinny.nitanmarcel_${{ env.ARTIFACT_VERSION }}_${{ matrix.arch }}
+          path: build/all/app/*.click
+          if-no-files-found: error
