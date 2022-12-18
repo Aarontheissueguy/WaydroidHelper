@@ -1,10 +1,5 @@
 {
     "template": "unconfined",
-    "policy_groups": [
-        "calendar",
-        "networking",
-        "history",
-        "contacts"
-    ],
+    "policy_groups": [],
     "policy_version": 16.04
 }
