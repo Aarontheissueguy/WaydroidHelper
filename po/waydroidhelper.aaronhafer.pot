@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-29 13:04+0000\n"
+"POT-Creation-Date: 2022-12-18 13:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,32 +78,32 @@ msgstr ""
 msgid "GAPPS"
 msgstr ""
 
-#: ../qml/Installer.qml:81
+#: ../qml/Installer.qml:82
 msgid ""
 "By pressing 'start' the installation will, well... start. The installer will "
 "let you know what it is doing at the moment. Be patient! The installation "
-"may take a while. Do not close the app during the installation! Once "
-"Waydroid is installed, your device will restart automatically. I reccomend "
+"may take a while. Do not close the app during the installation! I reccomend "
 "to disable screen suspension in the settings to keep the screen always on "
 "without touching it."
 msgstr ""
 
-#: ../qml/Installer.qml:91 ../qml/Uninstaller.qml:45
+#: ../qml/Installer.qml:94 ../qml/Main.qml:160 ../qml/Main.qml:344
+#: ../qml/PasswordPrompt.qml:57 ../qml/Uninstaller.qml:86
+msgid "Ok"
+msgstr ""
+
+#: ../qml/Installer.qml:94 ../qml/Uninstaller.qml:45
 msgid "Start"
 msgstr ""
 
-#: ../qml/Installer.qml:106 ../qml/Uninstaller.qml:60
-msgid "Running"
-msgstr ""
-
-#: ../qml/Installer.qml:118
+#: ../qml/Installer.qml:114
 msgid ""
 "<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel "
 "3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy "
 "S10<br>SHIFT6mq<br>Vollaphone (X)<br>"
 msgstr ""
 
-#: ../qml/Installer.qml:118
+#: ../qml/Installer.qml:114
 msgid ""
 "Other devices using Halium 9 or above may or may not work as well! <br> "
 "There is absolutely no warranty for this to work! Do not use this installer "
@@ -111,52 +111,28 @@ msgid ""
 "unlikely though)!"
 msgstr ""
 
-#: ../qml/Installer.qml:118
+#: ../qml/Installer.qml:114
 msgid ""
 "You are about to use an experimental Waydroid installer! <br> Supported "
 "devices:"
 msgstr ""
 
-#: ../qml/Installer.qml:123
+#: ../qml/Installer.qml:119
 msgid "I understand the risk"
 msgstr ""
 
-#: ../qml/Installer.qml:128 ../qml/Installer.qml:193
+#: ../qml/Installer.qml:125 ../qml/Installer.qml:167
+#: ../qml/PasswordPrompt.qml:77
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/Installer.qml:145
-msgid "Authorization"
-msgstr ""
-
-#: ../qml/Installer.qml:147
-msgid "Enter your passcode:"
-msgstr ""
-
-#: ../qml/Installer.qml:147 ../qml/Uninstaller.qml:71
-msgid "Enter your password:"
-msgstr ""
-
 #: ../qml/Installer.qml:152
-msgid "passcode"
-msgstr ""
-
-#: ../qml/Installer.qml:152
-msgid "password"
-msgstr ""
-
-#: ../qml/Installer.qml:158 ../qml/Main.qml:160 ../qml/Main.qml:344
-#: ../qml/Uninstaller.qml:81
-msgid "Ok"
-msgstr ""
-
-#: ../qml/Installer.qml:177
 msgid ""
 "You can install a special version of Waydroid that comes with google apps. "
 "(I personally do not recommend this as it will result in worse privacy.)"
 msgstr ""
 
-#: ../qml/Installer.qml:182
+#: ../qml/Installer.qml:157
 msgid "Enable GAPPS"
 msgstr ""
 
@@ -245,10 +221,46 @@ msgid ""
 "terminal app."
 msgstr ""
 
+#: ../qml/PasswordPrompt.qml:8
+msgid "Authorization"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:31
+msgid "Enter your passcode:"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:31 ../qml/Uninstaller.qml:76
+msgid "Enter your password:"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:38
+msgid "passcode"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:38
+msgid "password"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:52
+msgid "Incorrect passcode"
+msgstr ""
+
+#: ../qml/PasswordPrompt.qml:52
+msgid "Incorrect password"
+msgstr ""
+
 #: ../qml/Uninstaller.qml:14
 msgid "Uninstall Waydroid"
 msgstr ""
 
 #: ../qml/Uninstaller.qml:35
 msgid "Press 'start' to uninstall WayDroid."
+msgstr ""
+
+#: ../qml/Uninstaller.qml:60
+msgid "Running"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:119
+msgid "OK"
 msgstr ""
