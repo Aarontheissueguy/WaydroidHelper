@@ -16,6 +16,7 @@ Page {
                 Action {
                     iconName: "google-plus-symbolic"
                     text: i18n.tr("GAPPS")
+                    enabled: !running
                     onTriggered: PopupUtils.open(gapps)
                 }
             ]
@@ -47,6 +48,7 @@ Page {
 
     function startInstallation(password) {
         installerPage.running = true;
+        root.setAppLifecycleExemption();
         python.call('installer.install', [ password, gAPPS ]);
     }
 
@@ -78,6 +80,7 @@ Page {
             if (id === "complete") {
                 installerPage.completed = true;
                 installerPage.running = false;
+                root.unsetAppLifecycleExemption();
             }
         }
 

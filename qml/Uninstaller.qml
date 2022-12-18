@@ -31,6 +31,7 @@ Page {
 
     function startUninstallation(password) {
         uninstallerPage.running = true;
+        root.setAppLifecycleExemption();
         python.call('installer.uninstall', [ password ]);
     }
 
@@ -62,6 +63,7 @@ Page {
             if (id === "complete") {
                 uninstallerPage.completed = true;
                 uninstallerPage.running = false;
+                root.unsetAppLifecycleExemption();
             }
         }
     }
