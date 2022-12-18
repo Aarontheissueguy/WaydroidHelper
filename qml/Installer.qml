@@ -3,11 +3,11 @@ import Ubuntu.Components 1.3
 //import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
-import io.thp.pyotherside 1.3
+import io.thp.pyotherside 1.4
 import Ubuntu.Components.Popups 1.3
 
 Page {
-    id: aboutPage
+    id: installerPage
     header: PageHeader {
         id: header
         title: i18n.tr("Install Waydroid")
@@ -22,6 +22,52 @@ Page {
             }
         ]
         }
+    }
+
+    property var inputMethodHints: Qt.ImhHiddenText
+    property var isPasswordNumeric: inputMethodHints & Qt.ImhDigitsOnly
+
+    function startInstallation(password) {
+        python.call('installer.install', [ password, gAPPS ], () => {
+            console.log('installation started');
+        })
+    }
+
+    function checkPassword(password) {
+        return new Promise((resolve, reject) => {
+            python.call('installer.check_password', [ password ], (result) => {
+                if (!result) {
+                    reject();
+                    return;
+                }
+
+                resolve();
+            });
+        });
+    }
+
+    function showPasswordPrompt() {
+        const PASSWORD_TYPE_KEYBOARD = 0;
+        const PASSWORD_TYPE_NUMERIC = 1;
+
+        python.call('installer.get_password_type', [], (passwordType) => {
+            const value = python.getattr(passwordType, 'value');
+
+            switch (value) {
+                case PASSWORD_TYPE_KEYBOARD:
+                    installerPage.inputMethodHints = Qt.ImhHiddenText;
+                    break;
+                case PASSWORD_TYPE_NUMERIC:
+                    installerPage.inputMethodHints = Qt.ImhHiddenText | Qt.ImhDigitsOnly;
+                    break;
+                default:
+                    // no password set, just start the installation
+                    startInstallation('');
+                    return;
+            }
+
+            PopupUtils.open(passwordPrompt);
+        });
     }
 
     MainView {
@@ -60,7 +106,7 @@ Page {
                 startButton.visible = false
                 startButtonFake.visible = true
                 activity.running = true
-                PopupUtils.open(passwordPrompt)
+                showPasswordPrompt();
             }
         }
         Button {
@@ -114,28 +160,54 @@ Page {
         id: passwordPrompt
         Dialog {
             id: passPrompt
-            title: "Password"
+            title: i18n.tr("Authorization")
+
+            property bool blocked: false
+
             Label {
-                text: i18n.tr("Enter your password:")
+                text: isPasswordNumeric ? i18n.tr("Enter your passcode:") : i18n.tr("Enter your password:")
                 wrapMode: Text.Wrap
             }
+
             TextField {
                 id: password
-                placeholderText: "password"
+                readOnly: blocked
+                placeholderText: isPasswordNumeric ? i18n.tr("passcode") : i18n.tr("password")
                 echoMode: TextInput.Password
+                inputMethodHints: installerPage.inputMethodHints
+                maximumLength: isPasswordNumeric ? 4 : 32767
+                onDisplayTextChanged: {
+                    if (password.text.length > 0) {
+                        wrongPasswordHint.visible = false;
+                    }
+                }
+            }
+
+            Label {
+                id: wrongPasswordHint
+                color: theme.palette.normal.negative
+                text: isPasswordNumeric ? i18n.tr("Incorrect passcode") : i18n.tr("Incorrect password")
+                visible: false
             }
 
             Button {
                 text: i18n.tr("Ok")
+                enabled: !blocked
                 color: "green"
                 onClicked: {
-                    PopupUtils.close(passPrompt)
-                    python.call('installer.install', [password.text, gAPPS], function(returnValue) {
-                    })
-
-
+                    blocked = true;
+                    checkPassword(password.text)
+                        .then(() => {
+                            PopupUtils.close(passPrompt)
+                            startInstallation(password.text);
+                            password.text = '';
+                        })
+                        .catch(() => {
+                            wrongPasswordHint.visible = true;
+                            password.text = '';
+                            blocked = false;
+                        });
                 }
-
             }
 
         }
@@ -181,7 +253,6 @@ Page {
 
             importNames('installer', ['installer'], function() {
                 console.log('installer module imported');
-
             });
 
             python.setHandler('whatState', (state) => {
