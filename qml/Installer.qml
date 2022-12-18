@@ -29,7 +29,7 @@ Page {
 
     property string state: "initial"
     property var states: new Map([
-        [ "initial", i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.") ],
+        [ "initial", i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is currently doing. The installation might take a while. You can safely use other apps or turn off the screen, but don't close this one.") ],
         [ "starting", i18n.tr("Installation starting") ],
         [ "remount.rw", i18n.tr("Remounting filesystem as read-write") ],
         [ "remount.ro", i18n.tr("Remounting filesystem as read-only") ],
