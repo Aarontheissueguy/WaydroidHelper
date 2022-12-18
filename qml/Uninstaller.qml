@@ -15,8 +15,22 @@ Page {
     }
 
     property bool completed: false
+    property bool running: false
+
+    property string state: "initial"
+    property var states: new Map([
+        [ "initial", i18n.tr("Press 'start' to uninstall Waydroid.") ],
+        [ "starting", i18n.tr("Uninstallation starting") ],
+        [ "container", i18n.tr("Stopping Waydroid container service") ],
+        [ "remount.rw", i18n.tr("Remounting filesystem as read-write") ],
+        [ "remount.ro", i18n.tr("Remounting filesystem as read-only") ],
+        [ "apt.purge", i18n.tr("Purging Waydroid package and dependencies") ],
+        [ "cleanup", i18n.tr("Cleaning up Waydroid images") ],
+        [ "complete", i18n.tr("Uninstallation complete!") ],
+    ])
 
     function startUninstallation(password) {
+        uninstallerPage.running = true;
         python.call('installer.uninstall', [ password ]);
     }
 
@@ -29,46 +43,73 @@ Page {
         PopupUtils.open(passwordPrompt);
     }
 
-    MainView {
-        anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+    Connections {
+        target: python
 
-        ActivityIndicator {
-            id: activity
-            anchors.top: parent.top
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: parent.height / 15
+        onState: { // (string id, bool hasProgress)
+            if (!uninstallerPage.states.has(id)) {
+                console.log('unknown state', id);
+                return;
+            }
+
+            if (id === uninstallerPage.state && hasProgress === !progress.indeterminate) {
+                return;
+            }
+
+            progress.indeterminate = !hasProgress;
+            uninstallerPage.state = id;
+
+            if (id === "complete") {
+                uninstallerPage.completed = true;
+                uninstallerPage.running = false;
+            }
         }
+    }
+
+    ColumnLayout {
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+        spacing: units.gu(2)
 
         Label {
             id: content
-            anchors.top: (activity.running == true) ? activity.bottom : parent.top
-            anchors.topMargin: (activity.running == true) ? parent.height / 15 : parent.height / 25
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width / 1.5
+            text: uninstallerPage.states.get(uninstallerPage.state)
             horizontalAlignment: Text.AlignHCenter
-            text: i18n.tr("Press 'start' to uninstall Waydroid.")
-            font.pointSize: 25
             wrapMode: Text.Wrap
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: uninstallerPage.width / 1.5
+        }
+
+        ProgressBar {
+            id: progress
+            visible: running
+            indeterminate: true
+            value: 0
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        Label {
+            id: progressText
+            visible: running
+            opacity: progress.indeterminate ? 0 : 1
+            Layout.alignment: Qt.AlignHCenter
         }
 
         Button {
             id: startButton
-            enabled: !activity.running
-            anchors.top: content.bottom
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
+            visible: !running
             color: theme.palette.normal.positive
             text: uninstallerPage.completed ? i18n.tr("Ok") : i18n.tr("Start")
+            Layout.alignment: Qt.AlignHCenter
+
             onClicked: {
                 if (!uninstallerPage.completed) {
-                    activity.running = true
-                    PopupUtils.open(passwordPrompt);
+                    showPasswordPrompt();
                     return;
                 }
-                
+
                 pageStack.pop();
             }
         }
@@ -81,29 +122,20 @@ Page {
             onPassword: {
                 startUninstallation(password);
             }
-
-            onCancel: {
-                activity.running = false;
-            }
         }
     }
 
     Python {
         id: python
+
+        signal state(string id, bool hasProgress)
+
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../src/'));
 
             importNames('installer', ['installer'], () => {});
 
-            python.setHandler('whatState', (state) => {
-                content.text = state;
-            });
-
-            python.setHandler('runningStatus', (status) => {
-                content.text = status;
-                uninstallerPage.completed = true;
-                activity.running = false;
-            });
+            python.setHandler('state', state);
         }
 
         onError: {
