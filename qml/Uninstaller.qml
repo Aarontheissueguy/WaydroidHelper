@@ -58,7 +58,12 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             color: "gray"
             text: i18n.tr("Running")
-            onClicked: console.log("uninstaller is running")
+            onClicked: {
+		console.log("uninstaller is running")
+                if(activity.running == false){
+                    pageStack.pop();
+		}
+	    }
         }
     }
 
@@ -83,7 +88,6 @@ Page {
                 onClicked: {
                     PopupUtils.close(passPrompt)
                     python.call('installer.uninstall', [password.text], function(returnValue) {
-                        console.log('test was executed');
                     })
                     
                 
@@ -104,10 +108,16 @@ Page {
 
             });
 
-            python.setHandler('whatState',
-                function (state) {
+            python.setHandler('whatState', (state) => {
                     content.text = state
-                })
+                });
+
+            python.setHandler('runningStatus', (status) => {
+                    content.text = status
+                    activity.running = false
+                    startButtonFake.color = "green"
+                    startButtonFake.text = i18n.tr("OK")
+                });
 
         }
 

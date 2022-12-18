@@ -45,7 +45,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
             width: parent.width / 1.5
-            text: i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! Once Waydroid is installed, your device will restart automatically. I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.")
+            text: i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.")
             font.pointSize: 25
             wrapMode: Text.Wrap
         }
@@ -71,7 +71,12 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             color: "gray"
             text: i18n.tr("Running")
-            onClicked: console.log("Installer is running")
+            onClicked: {
+                console.log("Installer is running")
+                if(activity.running == false){
+                    pageStack.pop();
+		}
+            }
         }
     }
 
@@ -126,7 +131,6 @@ Page {
                 onClicked: {
                     PopupUtils.close(passPrompt)
                     python.call('installer.install', [password.text, gAPPS], function(returnValue) {
-                        console.log('test was executed');
                     })
 
 
@@ -180,11 +184,16 @@ Page {
 
             });
 
-            python.setHandler('whatState',
-                function (state) {
+            python.setHandler('whatState', (state) => {
                     content.text = state
-                })
+                });
 
+            python.setHandler('runningStatus', (status) => {
+                    content.text = status
+                    activity.running = false
+                    startButtonFake.color = "green"
+                    startButtonFake.text = i18n.tr("OK")
+                });
         }
 
         onError: {
