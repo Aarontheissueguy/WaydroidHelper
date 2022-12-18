@@ -17,6 +17,7 @@ Module for getting user password type from the Accounts service
  You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
+__all__ = ['get_password_type']
 
 import dbus
 from enum import Enum
