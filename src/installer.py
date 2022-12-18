@@ -62,6 +62,7 @@ class Installer:
         def dlstatus():
             print("Download status running")
             downloaded = []
+            startedDownload = False
 
             def wait_for_extract(image):
                 if not image in downloaded:
@@ -71,9 +72,15 @@ class Installer:
                     downloaded.append(image)
 
             while True:
-                
+                if not startedDownload:
+                    index = child.expect(['Already initialized', pexpect.EOF, pexpect.TIMEOUT], timeout=1)
+                    if index == 0:
+                        # already initialized
+                        break
+
                 index = child.expect(['\r\[Downloading\]\s+([\d\.]+) MB/([\d\.]+) MB\s+([\d\.]+) ([km]bps)\(approx.\)$', pexpect.EOF, pexpect.TIMEOUT], timeout=1)
                 if index == 0:
+                    startedDownload = True
                     if 'system' in downloaded:
                         pyotherside.send('state', 'dl.vendor', True)
                     else:
