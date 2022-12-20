@@ -21,6 +21,7 @@ class Installer:
         print("Starting bash and getting root privileges")
         pyotherside.send('state', 'starting', False)
         child = pexpect.spawn('bash')
+        child.logfile_read = sys.stdout.buffer
         child.expect(r'\$')
         child.sendline('sudo -s')
         if password != '':
@@ -126,6 +127,7 @@ class Installer:
         print("Starting bash and getting root privileges")
         pyotherside.send('state', 'starting', False)
         child = pexpect.spawn('bash')
+        child.logfile_read = sys.stdout.buffer
         child.expect(r'\$')
         child.sendline('sudo -s')
         if password != '':
