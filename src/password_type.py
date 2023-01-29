@@ -110,7 +110,7 @@ def get_password_type():
 
         password_hint = PasswordDisplayHint(
             user.Get(
-                'com.ubuntu.AccountsService.SecurityPrivacy',
+                'com.lomiri.AccountsService.SecurityPrivacy',
                 'PasswordDisplayHint',
                 dbus_interface='org.freedesktop.DBus.Properties'
             )
