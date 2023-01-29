@@ -29,26 +29,6 @@ class Installer:
             child.sendline(str(password))
         child.expect('root.*')
 
-        #remounting filesystem to rw
-        print("remounting filesystem to rw")
-        pyotherside.send('state', 'remount.rw', False)
-        child.sendline('mount -o remount,rw /')
-        child.expect('root.*')
-
-        #installing waydroid through apt
-        print("installing waydroid through apt")
-        pyotherside.send('state', 'apt.install', False)
-        child.sendline("apt update")
-        child.expect('root.*')
-        child.sendline("apt install waydroid python3-gbinder -y")
-        child.expect('root.*')
-
-        #remounting filesystem to ro
-        print("remounting filesystem to ro")
-        pyotherside.send('state', 'remount.ro', False)
-        child.sendline('mount -o remount,ro /')
-        child.expect('root.*')
-
         #Initializing waydroid (downloading lineage)
         def download():
             if gAPPS == True:
@@ -140,24 +120,6 @@ class Installer:
         pyotherside.send('state', 'container', False)
         child.sendline("service waydroid-container stop")
         child.expect("root.*", timeout=180)
-     
-        #remounting filesystem to rw
-        print("remounting filesystem to rw")
-        pyotherside.send('state', 'remount.rw', False)
-        child.sendline('mount -o remount,rw /')
-        child.expect('root.*')
-
-        #Purge Waydroid
-        print("purging Waydroid")
-        pyotherside.send('state', 'apt.purge', False)
-        child.sendline("apt purge --autoremove waydroid -y")
-        child.expect('root.*', timeout=480)
-
-        #remounting filesystem to ro
-        print("remounting filesystem to ro")
-        pyotherside.send('state', 'remount.ro', False)
-        child.sendline('mount -o remount,ro /')
-        child.expect('root.*')
 
         #do cleanup
         print("cleaning")

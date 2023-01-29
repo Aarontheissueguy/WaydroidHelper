@@ -1,9 +1,9 @@
 import QtQuick 2.7
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
-import Ubuntu.Components.Popups 1.3
+import Lomiri.Components.Popups 1.3
 
 Page {
     id: installerPage
@@ -31,9 +31,6 @@ Page {
     property var states: new Map([
         [ "initial", i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is currently doing. The installation might take a while. You can safely use other apps or turn off the screen, but don't close this one.") ],
         [ "starting", i18n.tr("Installation starting") ],
-        [ "remount.rw", i18n.tr("Remounting filesystem as read-write") ],
-        [ "remount.ro", i18n.tr("Remounting filesystem as read-only") ],
-        [ "apt.install", i18n.tr("Installing Waydroid package") ],
         [ "dl.init.gapps", i18n.tr("Preparing to download system image (with GAPPS)") ],
         [ "dl.init.vanilla", i18n.tr("Preparing to download system image") ],
         [ "dl.gapps", i18n.tr("Downloading system image (with GAPPS)") ],

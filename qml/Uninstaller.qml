@@ -1,10 +1,10 @@
 import QtQuick 2.7
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 //import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.3
-import Ubuntu.Components.Popups 1.3
+import Lomiri.Components.Popups 1.3
 
 Page {
     id: uninstallerPage
@@ -22,9 +22,6 @@ Page {
         [ "initial", i18n.tr("Press 'start' to uninstall Waydroid.") ],
         [ "starting", i18n.tr("Uninstallation starting") ],
         [ "container", i18n.tr("Stopping Waydroid container service") ],
-        [ "remount.rw", i18n.tr("Remounting filesystem as read-write") ],
-        [ "remount.ro", i18n.tr("Remounting filesystem as read-only") ],
-        [ "apt.purge", i18n.tr("Purging Waydroid package and dependencies") ],
         [ "cleanup", i18n.tr("Cleaning up Waydroid images") ],
         [ "complete", i18n.tr("Uninstallation complete!") ],
     ])

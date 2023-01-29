@@ -15,11 +15,11 @@
  */
 
 import QtQuick 2.7
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
-import Ubuntu.Components.Popups 1.3
+import Lomiri.Components.Popups 1.3
 import GSettings 1.0
 import "modules"
 
