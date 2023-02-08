@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-29 11:14+0000\n"
+"POT-Creation-Date: 2023-02-08 22:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,75 +90,63 @@ msgstr ""
 msgid "Installation starting"
 msgstr ""
 
-#: ../qml/Installer.qml:34 ../qml/Uninstaller.qml:25
-msgid "Remounting filesystem as read-write"
-msgstr ""
-
-#: ../qml/Installer.qml:35 ../qml/Uninstaller.qml:26
-msgid "Remounting filesystem as read-only"
-msgstr ""
-
-#: ../qml/Installer.qml:36
-msgid "Installing Waydroid package"
-msgstr ""
-
-#: ../qml/Installer.qml:37
+#: ../qml/Installer.qml:34
 msgid "Preparing to download system image (with GAPPS)"
 msgstr ""
 
-#: ../qml/Installer.qml:38
+#: ../qml/Installer.qml:35
 msgid "Preparing to download system image"
 msgstr ""
 
-#: ../qml/Installer.qml:39
+#: ../qml/Installer.qml:36
 msgid "Downloading system image (with GAPPS)"
 msgstr ""
 
-#: ../qml/Installer.qml:40
+#: ../qml/Installer.qml:37
 msgid "Downloading system image"
 msgstr ""
 
-#: ../qml/Installer.qml:41
+#: ../qml/Installer.qml:38
 msgid "Downloading vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:42
+#: ../qml/Installer.qml:39
 msgid "Validating system image"
 msgstr ""
 
-#: ../qml/Installer.qml:43
+#: ../qml/Installer.qml:40
 msgid "Validating vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:44
+#: ../qml/Installer.qml:41
 msgid "Extracting system image"
 msgstr ""
 
-#: ../qml/Installer.qml:45
+#: ../qml/Installer.qml:42
 msgid "Extracting vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:46
+#: ../qml/Installer.qml:43
 msgid "Installation complete!"
 msgstr ""
 
-#: ../qml/Installer.qml:137 ../qml/Main.qml:209 ../qml/Main.qml:415
-#: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:106
+#: ../qml/Installer.qml:134 ../qml/Main.qml:209 ../qml/Main.qml:415
+#: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:125
 msgid "Ok"
 msgstr ""
 
-#: ../qml/Installer.qml:137 ../qml/Uninstaller.qml:106
+#: ../qml/Installer.qml:134 ../qml/Uninstaller.qml:125
 msgid "Start"
 msgstr ""
 
-#: ../qml/Installer.qml:159
+#: ../qml/Installer.qml:156
 msgid ""
 "<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel "
 "3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy "
 "S10<br>SHIFT6mq<br>Vollaphone (X)<br>"
 msgstr ""
 
-#: ../qml/Installer.qml:159
+#: ../qml/Installer.qml:156
 msgid ""
 "Other devices using Halium 9 or above may or may not work as well! <br> "
 "There is absolutely no warranty for this to work! Do not use this installer "
@@ -166,28 +154,28 @@ msgid ""
 "unlikely though)!"
 msgstr ""
 
-#: ../qml/Installer.qml:159
+#: ../qml/Installer.qml:156
 msgid ""
 "You are about to use an experimental Waydroid installer! <br> Supported "
 "devices:"
 msgstr ""
 
-#: ../qml/Installer.qml:164
+#: ../qml/Installer.qml:161
 msgid "I understand the risk"
 msgstr ""
 
-#: ../qml/Installer.qml:170 ../qml/Installer.qml:213
+#: ../qml/Installer.qml:167 ../qml/Installer.qml:210
 #: ../qml/PasswordPrompt.qml:78
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/Installer.qml:199
+#: ../qml/Installer.qml:196
 msgid ""
 "You can install a special version of Waydroid that comes with google apps. "
 "(I personally do not recommend this as it will result in worse privacy.)"
 msgstr ""
 
-#: ../qml/Installer.qml:204
+#: ../qml/Installer.qml:201
 msgid "Enable GAPPS"
 msgstr ""
 
@@ -308,26 +296,26 @@ msgstr ""
 msgid "Uninstall Waydroid"
 msgstr ""
 
-#: ../qml/Uninstaller.qml:22
+#: ../qml/Uninstaller.qml:23
 msgid "Press 'start' to uninstall Waydroid."
 msgstr ""
 
-#: ../qml/Uninstaller.qml:23
+#: ../qml/Uninstaller.qml:24
 msgid "Uninstallation starting"
 msgstr ""
 
-#: ../qml/Uninstaller.qml:24
+#: ../qml/Uninstaller.qml:25
 msgid "Stopping Waydroid container service"
 msgstr ""
 
-#: ../qml/Uninstaller.qml:27
-msgid "Purging Waydroid package and dependencies"
-msgstr ""
-
-#: ../qml/Uninstaller.qml:28
+#: ../qml/Uninstaller.qml:26
 msgid "Cleaning up Waydroid images"
 msgstr ""
 
-#: ../qml/Uninstaller.qml:29
+#: ../qml/Uninstaller.qml:27
 msgid "Uninstallation complete!"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:110
+msgid "Wipe app data"
 msgstr ""

@@ -16,6 +16,7 @@ Page {
 
     property bool completed: false
     property bool running: false
+    property alias wipeData: wipe.checked
 
     property string state: "initial"
     property var states: new Map([
@@ -29,7 +30,7 @@ Page {
     function startUninstallation(password) {
         uninstallerPage.running = true;
         root.setAppLifecycleExemption();
-        python.call('installer.uninstall', [ password ]);
+        python.call('installer.uninstall', [ password, wipeData ]);
     }
 
     function showPasswordPrompt() {
@@ -70,7 +71,7 @@ Page {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
         }
-        spacing: units.gu(2)
+        spacing: units.gu(3)
 
         Label {
             id: content
@@ -94,6 +95,27 @@ Page {
             visible: running
             opacity: progress.indeterminate ? 0 : 1
             Layout.alignment: Qt.AlignHCenter
+        }
+
+        Row {
+            visible: !running && !uninstallerPage.completed
+            spacing: units.gu(1)
+            Layout.alignment: Qt.AlignHCenter
+
+            CheckBox {
+                id: wipe
+            }
+
+            Label {
+                text: i18n.tr("Wipe app data")
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        wipe.checked = !wipe.checked;
+                    }
+                }
+            }
         }
 
         Button {
