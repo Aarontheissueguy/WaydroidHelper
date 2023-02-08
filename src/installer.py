@@ -100,7 +100,7 @@ class Installer:
         
         return ""
     
-    def uninstall(self, password):
+    def uninstall(self, password, wipe=False):
         os.chdir("/home/phablet")
         
         #Starting bash and getting root privileges
@@ -118,14 +118,25 @@ class Installer:
         #Stop Waydroid Container
         print("stopping waydroid container")
         pyotherside.send('state', 'container', False)
-        child.sendline("service waydroid-container stop")
+        child.sendline("systemctl stop waydroid-container")
         child.expect("root.*", timeout=180)
 
         #do cleanup
         print("cleaning")
         pyotherside.send('state', 'cleanup', False)
-        child.sendline("rm -rf /var/lib/waydroid")
+        child.sendline("rm -rf /var/lib/waydroid/*")
         child.expect('root.*')
+        child.sendline("rm -f /home/phablet/.local/share/applications/Waydroid.desktop")
+        child.expect('root.*')
+
+        if wipe:
+            child.sendline("rm -rf /home/phablet/.local/share/waydroid")
+            child.expect('root.*')
+            child.sendline("rm -rf /home/phablet/.local/share/applications/waydroid.*.desktop")
+            child.expect('root.*')
+            child.sendline("rm -f /home/phablet/.local/share/applications/stop-waydroid.desktop")
+            child.expect('root.*')
+
         pyotherside.send('state', 'complete', False)
         child.close()
 
