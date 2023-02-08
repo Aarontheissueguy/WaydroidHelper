@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 14:47+0000\n"
+"POT-Creation-Date: 2022-12-20 18:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/About.qml:8 ../qml/Main.qml:54
+#: ../qml/About.qml:8 ../qml/Main.qml:97
 msgid "About"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "General contributions: "
 msgstr ""
 
-#: ../qml/Help.qml:13 ../qml/Main.qml:60
+#: ../qml/Help.qml:13 ../qml/Main.qml:103
 msgid "Help"
 msgstr ""
 
@@ -78,32 +78,87 @@ msgstr ""
 msgid "GAPPS"
 msgstr ""
 
-#: ../qml/Installer.qml:62
+#: ../qml/Installer.qml:32
 msgid ""
 "By pressing 'start' the installation will, well... start. The installer will "
-"let you know what it is doing at the moment. Be patient! The installation "
-"may take a while. Do not close the app during the installation! I reccomend "
-"to disable screen suspension in the settings to keep the screen always on "
-"without touching it."
+"let you know what it is currently doing. The installation might take a "
+"while. You can safely use other apps or turn off the screen, but don't close "
+"this one."
 msgstr ""
 
-#: ../qml/Installer.qml:74 ../qml/Main.qml:166 ../qml/Main.qml:372
-#: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:65
+#: ../qml/Installer.qml:33
+msgid "Installation starting"
+msgstr ""
+
+#: ../qml/Installer.qml:34 ../qml/Uninstaller.qml:25
+msgid "Remounting filesystem as read-write"
+msgstr ""
+
+#: ../qml/Installer.qml:35 ../qml/Uninstaller.qml:26
+msgid "Remounting filesystem as read-only"
+msgstr ""
+
+#: ../qml/Installer.qml:36
+msgid "Installing Waydroid package"
+msgstr ""
+
+#: ../qml/Installer.qml:37
+msgid "Preparing to download system image (with GAPPS)"
+msgstr ""
+
+#: ../qml/Installer.qml:38
+msgid "Preparing to download system image"
+msgstr ""
+
+#: ../qml/Installer.qml:39
+msgid "Downloading system image (with GAPPS)"
+msgstr ""
+
+#: ../qml/Installer.qml:40
+msgid "Downloading system image"
+msgstr ""
+
+#: ../qml/Installer.qml:41
+msgid "Downloading vendor image"
+msgstr ""
+
+#: ../qml/Installer.qml:42
+msgid "Validating system image"
+msgstr ""
+
+#: ../qml/Installer.qml:43
+msgid "Validating vendor image"
+msgstr ""
+
+#: ../qml/Installer.qml:44
+msgid "Extracting system image"
+msgstr ""
+
+#: ../qml/Installer.qml:45
+msgid "Extracting vendor image"
+msgstr ""
+
+#: ../qml/Installer.qml:46
+msgid "Installation complete!"
+msgstr ""
+
+#: ../qml/Installer.qml:137 ../qml/Main.qml:209 ../qml/Main.qml:415
+#: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:106
 msgid "Ok"
 msgstr ""
 
-#: ../qml/Installer.qml:74 ../qml/Uninstaller.qml:65
+#: ../qml/Installer.qml:137 ../qml/Uninstaller.qml:106
 msgid "Start"
 msgstr ""
 
-#: ../qml/Installer.qml:95
+#: ../qml/Installer.qml:159
 msgid ""
 "<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel "
 "3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy "
 "S10<br>SHIFT6mq<br>Vollaphone (X)<br>"
 msgstr ""
 
-#: ../qml/Installer.qml:95
+#: ../qml/Installer.qml:159
 msgid ""
 "Other devices using Halium 9 or above may or may not work as well! <br> "
 "There is absolutely no warranty for this to work! Do not use this installer "
@@ -111,71 +166,71 @@ msgid ""
 "unlikely though)!"
 msgstr ""
 
-#: ../qml/Installer.qml:95
+#: ../qml/Installer.qml:159
 msgid ""
 "You are about to use an experimental Waydroid installer! <br> Supported "
 "devices:"
 msgstr ""
 
-#: ../qml/Installer.qml:100
+#: ../qml/Installer.qml:164
 msgid "I understand the risk"
 msgstr ""
 
-#: ../qml/Installer.qml:106 ../qml/Installer.qml:154
+#: ../qml/Installer.qml:170 ../qml/Installer.qml:213
 #: ../qml/PasswordPrompt.qml:78
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/Installer.qml:139
+#: ../qml/Installer.qml:199
 msgid ""
 "You can install a special version of Waydroid that comes with google apps. "
 "(I personally do not recommend this as it will result in worse privacy.)"
 msgstr ""
 
-#: ../qml/Installer.qml:144
+#: ../qml/Installer.qml:204
 msgid "Enable GAPPS"
 msgstr ""
 
-#: ../qml/Main.qml:49 waydroidhelper.desktop.in.h:1
+#: ../qml/Main.qml:92 waydroidhelper.desktop.in.h:1
 msgid "Waydroid Helper"
 msgstr ""
 
-#: ../qml/Main.qml:79
+#: ../qml/Main.qml:122
 msgid "Install Waydroid 📲>"
 msgstr ""
 
-#: ../qml/Main.qml:92
+#: ../qml/Main.qml:135
 msgid "Show/Hide apps 🙈>"
 msgstr ""
 
-#: ../qml/Main.qml:106
+#: ../qml/Main.qml:149
 msgid "Waydroid Stop app 🛑>"
 msgstr ""
 
-#: ../qml/Main.qml:119
+#: ../qml/Main.qml:162
 msgid "Waydroid Help ❓>"
 msgstr ""
 
-#: ../qml/Main.qml:132
+#: ../qml/Main.qml:175
 msgid "Uninstall Waydroid 🗑>"
 msgstr ""
 
-#: ../qml/Main.qml:150
+#: ../qml/Main.qml:193
 msgid "Show/Hide"
 msgstr ""
 
-#: ../qml/Main.qml:160
+#: ../qml/Main.qml:203
 msgid ""
 "Swipe on the listed apps to either hide them(bin) or show them(plus) in the "
 "Appdrawer. This will NOT install or uninstall the selected app. Reload the "
 "Appdrawer for the changes to take effect."
 msgstr ""
 
-#: ../qml/Main.qml:241
+#: ../qml/Main.qml:284
 msgid "Waydroid Stop"
 msgstr ""
 
-#: ../qml/Main.qml:252
+#: ../qml/Main.qml:295
 msgid ""
 "The 'Waydroid Stop app' allows you to easily stop Waydroid without entering "
 "the terminal. Once you press 'Add' a new icon will appear in your appdrawer. "
@@ -184,25 +239,25 @@ msgid ""
 "automaticly again."
 msgstr ""
 
-#: ../qml/Main.qml:279
+#: ../qml/Main.qml:322
 msgid "Remove"
 msgstr ""
 
-#: ../qml/Main.qml:294
+#: ../qml/Main.qml:337
 msgid "Add"
 msgstr ""
 
-#: ../qml/Main.qml:308
+#: ../qml/Main.qml:351
 msgid "Waydroid Help"
 msgstr ""
 
-#: ../qml/Main.qml:318
+#: ../qml/Main.qml:361
 msgid ""
 "<b>You need to run these commands in the terminal app. Tap a command to copy "
 "it to the clipboard.</b><br><br>"
 msgstr ""
 
-#: ../qml/Main.qml:340
+#: ../qml/Main.qml:383
 msgid ""
 "<a href='waydroid -h'>waydroid -h</a>, --help show this help message and "
 "exit <br><br><a href='waydroid -V'>waydroid -V</a>, --version show program's "
@@ -215,7 +270,7 @@ msgid ""
 "do not output any log messages"
 msgstr ""
 
-#: ../qml/Main.qml:367
+#: ../qml/Main.qml:410
 msgid ""
 "You copied a command to your clipboard. You can now paste and use it in the "
 "terminal app."
@@ -253,6 +308,26 @@ msgstr ""
 msgid "Uninstall Waydroid"
 msgstr ""
 
-#: ../qml/Uninstaller.qml:53
+#: ../qml/Uninstaller.qml:22
 msgid "Press 'start' to uninstall Waydroid."
+msgstr ""
+
+#: ../qml/Uninstaller.qml:23
+msgid "Uninstallation starting"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:24
+msgid "Stopping Waydroid container service"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:27
+msgid "Purging Waydroid package and dependencies"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:28
+msgid "Cleaning up Waydroid images"
+msgstr ""
+
+#: ../qml/Uninstaller.qml:29
+msgid "Uninstallation complete!"
 msgstr ""

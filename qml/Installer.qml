@@ -16,6 +16,7 @@ Page {
                 Action {
                     iconName: "google-plus-symbolic"
                     text: i18n.tr("GAPPS")
+                    enabled: !running
                     onTriggered: PopupUtils.open(gapps)
                 }
             ]
@@ -24,8 +25,30 @@ Page {
 
     property var gAPPS: false
     property bool completed: false
+    property bool running: false
+
+    property string state: "initial"
+    property var states: new Map([
+        [ "initial", i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is currently doing. The installation might take a while. You can safely use other apps or turn off the screen, but don't close this one.") ],
+        [ "starting", i18n.tr("Installation starting") ],
+        [ "remount.rw", i18n.tr("Remounting filesystem as read-write") ],
+        [ "remount.ro", i18n.tr("Remounting filesystem as read-only") ],
+        [ "apt.install", i18n.tr("Installing Waydroid package") ],
+        [ "dl.init.gapps", i18n.tr("Preparing to download system image (with GAPPS)") ],
+        [ "dl.init.vanilla", i18n.tr("Preparing to download system image") ],
+        [ "dl.gapps", i18n.tr("Downloading system image (with GAPPS)") ],
+        [ "dl.vanilla", i18n.tr("Downloading system image") ],
+        [ "dl.vendor", i18n.tr("Downloading vendor image") ],
+        [ "validate.system", i18n.tr("Validating system image") ],
+        [ "validate.vendor", i18n.tr("Validating vendor image") ],
+        [ "extract.system", i18n.tr("Extracting system image") ],
+        [ "extract.vendor", i18n.tr("Extracting vendor image") ],
+        [ "complete", i18n.tr("Installation complete!") ],
+    ])
 
     function startInstallation(password) {
+        installerPage.running = true;
+        root.setAppLifecycleExemption();
         python.call('installer.install', [ password, gAPPS ]);
     }
 
@@ -38,43 +61,84 @@ Page {
         PopupUtils.open(passwordPrompt);
     }
 
-    MainView {
-        anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        Component.onCompleted: PopupUtils.open(dialogInstall)
+    Connections {
+        target: python
 
-        ActivityIndicator {
-            id: activity
-            anchors.top: parent.top
-            anchors.topMargin: parent.height / 15
-            anchors.horizontalCenter: parent.horizontalCenter
+        onState: { // (string id, bool hasProgress)
+            if (!installerPage.states.has(id)) {
+                console.log('unknown state', id);
+                return;
+            }
+
+            if (id === installerPage.state && hasProgress === !progress.indeterminate) {
+                return;
+            }
+
+            progress.indeterminate = !hasProgress;
+            installerPage.state = id;
+
+            if (id === "complete") {
+                installerPage.completed = true;
+                installerPage.running = false;
+                root.unsetAppLifecycleExemption();
+            }
         }
+
+        onDownloadProgress: { // (real current, real target, real speed, string unit)
+            progress.maximumValue = target
+            progress.value = current;
+            unit = unit === 'kbps' ? 'KB/s' : 'MB/s';
+            if (speed > 1000 && unit === 'KB/s') {
+                speed = speed / 1000;
+                unit = 'MB/s'
+            }
+
+            progressText.text = `${current.toFixed(2)} MB/${target.toFixed(2)} MB (${speed.toFixed(2)} ${unit})`;
+        }
+    }
+
+    ColumnLayout {
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+        spacing: units.gu(2)
+
+        Component.onCompleted: PopupUtils.open(dialogInstall)
 
         Label {
             id: content
-            anchors.top: (activity.running == true) ? activity.bottom : parent.top
-            anchors.topMargin:(activity.running == true) ? parent.height / 15 : parent.height / 25
-            anchors.horizontalCenter: parent.horizontalCenter
+            text: installerPage.states.get(installerPage.state)
             horizontalAlignment: Text.AlignHCenter
-            width: parent.width / 1.5
-            text: i18n.tr("By pressing 'start' the installation will, well... start. The installer will let you know what it is doing at the moment. Be patient! The installation may take a while. Do not close the app during the installation! I reccomend to disable screen suspension in the settings to keep the screen always on without touching it.")
-            font.pointSize: 25
             wrapMode: Text.Wrap
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: installerPage.width / 1.5
+        }
+
+        ProgressBar {
+            id: progress
+            visible: running
+            indeterminate: true
+            value: 0
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        Label {
+            id: progressText
+            visible: running
+            opacity: progress.indeterminate ? 0 : 1
+            Layout.alignment: Qt.AlignHCenter
         }
 
         Button {
             id: startButton
-            enabled: !activity.running
-            anchors.top: content.bottom
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
+            visible: !running
             color: theme.palette.normal.positive
             text: installerPage.completed ? i18n.tr("Ok") : i18n.tr("Start")
+            Layout.alignment: Qt.AlignHCenter
+
             onClicked: {
                 if (!installerPage.completed) {
-                    activity.running = true;
                     showPasswordPrompt();
                     return;
                 }
@@ -121,10 +185,6 @@ Page {
             onPassword: {
                 startInstallation(password);
             }
-
-            onCancel: {
-                activity.running = false;
-            }
         }
     }
 
@@ -147,7 +207,6 @@ Page {
                     gAPPS = true;
                     PopupUtils.close(gappsPrompt);
                 }
-
             }
 
             Button {
@@ -162,20 +221,16 @@ Page {
     Python {
         id: python
 
+        signal state(string id, bool hasProgress)
+        signal downloadProgress(real current, real target, real speed, string unit)
+
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../src/'));
 
             importNames('installer', ['installer'], () => {});
 
-            python.setHandler('whatState', (state) => {
-                content.text = state;
-            });
-
-            python.setHandler('runningStatus', (status) => {
-                content.text = status;
-                installerPage.completed = true;
-                activity.running = false;
-            });
+            python.setHandler('state', state);
+            python.setHandler('downloadProgress', downloadProgress);
         }
 
         onError: {

@@ -16,11 +16,11 @@
 
 import QtQuick 2.7
 import Ubuntu.Components 1.3
-//import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
 import Ubuntu.Components.Popups 1.3
+import GSettings 1.0
 import "modules"
 
 MainView {
@@ -34,6 +34,49 @@ MainView {
 
     property var inputMethodHints: Qt.ImhHiddenText
     property var isPasswordNumeric: inputMethodHints & Qt.ImhDigitsOnly
+
+    function checkAppLifecycleExemption() {
+        const appidList = gsettings.lifecycleExemptAppids;
+
+        if (!appidList) {
+            return false;
+        }
+
+        return appidList.includes(Qt.application.name);
+    }
+
+    function setAppLifecycleExemption() {
+        if (!root.checkAppLifecycleExemption()) {
+            const appidList = gsettings.lifecycleExemptAppids;
+            const newList = appidList.slice();
+
+            newList.push(Qt.application.name);
+            gsettings.lifecycleExemptAppids = newList;
+        }
+    }
+
+    function unsetAppLifecycleExemption() {
+        if (root.checkAppLifecycleExemption()) {
+            const appidList = gsettings.lifecycleExemptAppids;
+            const index = appidList.indexOf(Qt.application.name);
+            const newList = appidList.slice();
+
+            if (index > -1) {
+              newList.splice(index, 1);
+            }
+
+            gsettings.lifecycleExemptAppids = newList;
+        }
+    }
+
+    // cleanup in case it crashes
+    Component.onCompleted: unsetAppLifecycleExemption()
+    Component.onDestruction: unsetAppLifecycleExemption()
+
+    GSettings {
+        id: gsettings
+        schema.id: "com.canonical.qtmir"
+    }
 
     PageStack {
         id: pageStack
