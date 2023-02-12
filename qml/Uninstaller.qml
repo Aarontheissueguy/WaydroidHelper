@@ -152,10 +152,6 @@ Page {
         signal state(string id, bool hasProgress)
 
         Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('../src/'));
-
-            importNames('installer', ['installer'], () => {});
-
             python.setHandler('state', state);
         }
 
