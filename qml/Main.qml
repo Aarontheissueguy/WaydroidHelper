@@ -431,8 +431,10 @@ MainView {
                     applist.repeaterModel = returnValue;
                 });
             });
-
+            importNames('installer', ['installer'], () => {});
             importNames('main', ['stopapp'], () => {});
+            
+            importModule('pam', () => {});
             importModule('password_type', () => {
                 const PASSWORD_TYPE_KEYBOARD = 0;
                 const PASSWORD_TYPE_NUMERIC = 1;

@@ -222,10 +222,6 @@ Page {
         signal downloadProgress(real current, real target, real speed, string unit)
 
         Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('../src/'));
-
-            importNames('installer', ['installer'], () => {});
-
             python.setHandler('state', state);
             python.setHandler('downloadProgress', downloadProgress);
         }

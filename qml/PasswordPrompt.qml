@@ -85,15 +85,5 @@ Dialog {
 
     Python {
         id: python
-
-        Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('../src/'));
-
-            importModule('pam', () => {});
-        }
-
-        onError: {
-            console.log('python error:', traceback);
-        }
     }
 }
