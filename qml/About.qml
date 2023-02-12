@@ -33,7 +33,7 @@ Page {
                 fontSize: "x-large"
             }
 
-            UbuntuShape {
+            LomiriShape {
                 width: units.gu(12); height: units.gu(12)
                 anchors.horizontalCenter: parent.horizontalCenter
                 radius: "medium"
@@ -44,7 +44,7 @@ Page {
 
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: i18n.tr("Version: ") + "%1".arg(Qt.application.version)
@@ -52,7 +52,7 @@ Page {
 
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: i18n.tr("A Tweak tool application for WayDroid on Ubuntu Touch.")
@@ -60,7 +60,7 @@ Page {
 
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 //TRANSLATORS: Please make sure the URLs are correct
@@ -70,7 +70,7 @@ Page {
 
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: "<a href='https://github.com/Aarontheissueguy/WaydroidHelper'>" + i18n.tr("SOURCE") + "</a> | <a href='https://github.com/Aarontheissueguy/WaydroidHelper/issues'>" + i18n.tr("ISSUES") + "</a> | <a href='https://www.paypal.com/paypalme/AaronTheIssueGuy'>" + i18n.tr("DONATE") + "</a>"
@@ -79,7 +79,7 @@ Page {
 
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 style: Font.Bold
@@ -88,7 +88,7 @@ Page {
             
             Label {
                 width: parent.width
-                linkColor: UbuntuColors.orange
+                linkColor: LomiriColors.orange
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 style: Font.Bold
