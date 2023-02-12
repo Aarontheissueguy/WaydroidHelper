@@ -101,8 +101,7 @@ MainView {
                         Action {
                             iconName: "dialog-question-symbolic"
                             text: i18n.tr("Help")
-                            onTriggered: pageStack.push(Qt.resolvedUrl("Help.qml"))
-                            
+                            onTriggered: Qt.openUrlExternally("https://docs.waydro.id")
                         }
                     ]
                 }
