@@ -39,7 +39,7 @@ Dialog {
         placeholderText: root.isPasswordNumeric ? i18n.tr("passcode") : i18n.tr("password")
         echoMode: TextInput.Password
         inputMethodHints: root.inputMethodHints
-        maximumLength: root.isPasswordNumeric ? 4 : 32767
+        maximumLength: root.isPasswordNumeric ? 12 : 32767
         onDisplayTextChanged: {
             if (password.text.length > 0) {
                 wrongPasswordHint.visible = false;
