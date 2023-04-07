@@ -1,0 +1,348 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the waydroidhelper.aaronhafer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: waydroidhelper.aaronhafer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-07 08:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/About.qml:8 ../qml/Main.qml:97
+msgid "About"
+msgstr "Acerca"
+
+#: ../qml/About.qml:32
+msgid "WayDroid Helper"
+msgstr "WayDroid Helper"
+
+#: ../qml/About.qml:50
+msgid "Version: "
+msgstr "Versão:"
+
+#: ../qml/About.qml:58
+msgid "A Tweak tool application for WayDroid on Ubuntu Touch."
+msgstr "Uma aplicação de ajustes de WayDroid para Ubuntu Touch."
+
+#. TRANSLATORS: Please make sure the URLs are correct
+#: ../qml/About.qml:67
+msgid ""
+"This program is free software: you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation, either version 3 of the License, or (at your option) "
+"any later version. This program is distributed in the hope that it will be "
+"useful, but WITHOUT ANY WARRANTY; without even the implied warranty of "
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the <a "
+"href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General Public "
+"License</a> for more details."
+msgstr ""
+
+#: ../qml/About.qml:76
+msgid "DONATE"
+msgstr "DOAR"
+
+#: ../qml/About.qml:76
+msgid "ISSUES"
+msgstr "PROBLEMAS"
+
+#: ../qml/About.qml:76
+msgid "SOURCE"
+msgstr "CÓDIGO-FONTE"
+
+#: ../qml/About.qml:86
+msgid "Copyright"
+msgstr "Direitos de autor"
+
+#: ../qml/About.qml:95
+msgid "General contributions: "
+msgstr "Contribuições Gerais"
+
+#: ../qml/Installer.qml:12
+msgid "Install Waydroid"
+msgstr "Instalar WayDroid"
+
+#: ../qml/Installer.qml:18
+msgid "GAPPS"
+msgstr "GAPPS"
+
+#: ../qml/Installer.qml:32
+msgid ""
+"By pressing 'start' the installation will, well... start. The installer will "
+"let you know what it is currently doing. The installation might take a "
+"while. You can safely use other apps or turn off the screen, but don't close "
+"this one."
+msgstr ""
+"Ao pressionar 'iniciar' a instalação inicia. O instalador irá "
+"avisá-lo sobre o que está a ser feito. A instalação vai demorar "
+"um pouco. Você pode usar outras apps ou desligar o ecrã, mas não encerre "
+"o WayDroid Helper."
+
+#: ../qml/Installer.qml:33
+msgid "Installation starting"
+msgstr "Instalação a iniciar"
+
+#: ../qml/Installer.qml:34
+msgid "Preparing to download system image (with GAPPS)"
+msgstr "A preparar para transferir a imagem de sistema (com GAPPS)"
+
+#: ../qml/Installer.qml:35
+msgid "Preparing to download system image"
+msgstr "A preprar para transferir a imagem de sistema"
+
+#: ../qml/Installer.qml:36
+msgid "Downloading system image (with GAPPS)"
+msgstr "A transferir a imagem de sistema (com GAPPS)"
+
+#: ../qml/Installer.qml:37
+msgid "Downloading system image"
+msgstr "A transferir a imagem de sistema"
+
+#: ../qml/Installer.qml:38
+msgid "Downloading vendor image"
+msgstr "A transferir a imagem do fabricante"
+
+#: ../qml/Installer.qml:39
+msgid "Validating system image"
+msgstr "A validar o sistema de imagem"
+
+#: ../qml/Installer.qml:40
+msgid "Validating vendor image"
+msgstr "A validar a imagem do fabricante"
+
+#: ../qml/Installer.qml:41
+msgid "Extracting system image"
+msgstr "A extrair a imagem do sistema"
+
+#: ../qml/Installer.qml:42
+msgid "Extracting vendor image"
+msgstr "A extrair a imagem do fabricante"
+
+#: ../qml/Installer.qml:43
+msgid "Installation complete!"
+msgstr "Instalação completa!"
+
+#: ../qml/Installer.qml:134 ../qml/Main.qml:208 ../qml/Main.qml:414
+#: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:125
+msgid "Ok"
+msgstr "Ok"
+
+#: ../qml/Installer.qml:134 ../qml/Uninstaller.qml:125
+msgid "Start"
+msgstr "Iniciar"
+
+#: ../qml/Installer.qml:156
+msgid ""
+"<br>Fairphone 3/3<br>OnePlus 5/5T<br>OnePlus 6/6T<br>Pixel/Pixel "
+"XL<br>Pixel 2 XL<br>Pixel 3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro "
+"Max<br>Samsung Galaxy S10<br>SHIFT6mq<br>Vollaphone (X)<br>"
+msgstr ""
+
+#: ../qml/Installer.qml:156
+msgid ""
+"Other devices using Halium 9 or above may or may not work as well! <br> "
+"There is absolutely no warranty for this to work! Do not use this installer "
+"if you dont want to risk to brick your device permenantly (,which is highly "
+"unlikely though)!"
+msgstr ""
+"Outros dispositivos com Halium 9 ou acima podem ou não funcionar! <br> "
+"Não existe garantia absoluta que isto funcionará! Não utilize o WayDroid Helper "
+"se não pretender bloquear o seu dispositivo (sendo, contudo, "
+"pouco provável)!"
+
+#: ../qml/Installer.qml:156
+msgid ""
+"You are about to use an experimental Waydroid installer! <br> Supported "
+"devices:"
+msgstr ""
+"Está prestes a utilizar um instalador experimental do WayDroid! <br> Dispositivos "
+"suportados:"
+
+#: ../qml/Installer.qml:161
+msgid "I understand the risk"
+msgstr "Eu entendo o risco"
+
+#: ../qml/Installer.qml:167 ../qml/Installer.qml:210
+#: ../qml/PasswordPrompt.qml:78
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../qml/Installer.qml:196
+msgid ""
+"You can install a special version of Waydroid that comes with google apps. "
+"(I personally do not recommend this as it will result in worse privacy.)"
+msgstr ""
+"Você pode instalar uma versão especial do WayDroid que tem as google apps. "
+"(Pessoalmente, não recomendo pois resulta em pior privacidade.)"
+#: ../qml/Installer.qml:201
+msgid "Enable GAPPS"
+msgstr "Ativar GAPPS"
+
+#: ../qml/Main.qml:92 waydroidhelper.desktop.in.h:1
+msgid "Waydroid Helper"
+msgstr "WayDroid Helper"
+
+#: ../qml/Main.qml:103
+msgid "Help"
+msgstr "Ajudar"
+
+#: ../qml/Main.qml:121
+msgid "Install Waydroid 📲>"
+msgstr "Instalar WayDroid 📲>"
+
+#: ../qml/Main.qml:134
+msgid "Show/Hide apps 🙈>"
+msgstr "Mostrar/Ocultar apps 🙈>"
+
+#: ../qml/Main.qml:148
+msgid "Waydroid Stop app 🛑>"
+msgstr "Parar WayDroid App 🛑>"
+
+#: ../qml/Main.qml:161
+msgid "Waydroid Help ❓>"
+msgstr "Ajuda Waydroid ❓>"
+
+#: ../qml/Main.qml:200
+msgid "Show/Hide apps"
+msgstr "Mostrar/Ocultar apps"
+
+#: ../qml/Main.qml:174
+msgid "Uninstall Waydroid 🗑>"
+msgstr "Desinstalar WayDroid 🗑>"
+
+#: ../qml/Main.qml:192
+msgid "Show/Hide"
+msgstr "Mostrar/Ocultar"
+
+#: ../qml/Main.qml:202
+msgid ""
+"Swipe on the listed apps to either hide them(bin) or show them(plus) in the "
+"Appdrawer. This will NOT install or uninstall the selected app. Reload the "
+"Appdrawer for the changes to take effect."
+msgstr ""
+"Deslize nas aplicações listadas para ocultá-las(bin) ou mostrá-las (mais) no "
+"Appdrawer. Isso NÃO instalará ou desinstalará a aplicação selecionada. Recarregue o "
+"Appdrawer para que as alterações entrem em vigor."
+
+#: ../qml/Main.qml:283
+msgid "Waydroid Stop"
+msgstr "Parar WayDroid"
+
+#: ../qml/Main.qml:294
+msgid ""
+"The 'Waydroid Stop app' allows you to easily stop Waydroid without entering "
+"the terminal. Once you press 'Add' a new icon will appear in your appdrawer. "
+"Pressing this icon will stop Waydroid if it has crashed or anything else "
+"went wrong. If you open any of your Android apps, waydroid will start "
+"automaticly again."
+msgstr ""
+"A aplicação 'Waydroid Stop' permite que você pare facilmente o WayDroid sem utilizar "
+"o terminal. Depois de pressionar 'Adicionar', um novo ícone aparecerá no AppDrawer. "
+"Pressionar este ícone irá parar o WayDroid se ele travar ou se qualquer outra coisa"
+"deu errado. Se você abrir qualquer um dos seus aplicativos Android, o WayDroid iniciará "
+"automaticamente de novo."
+
+#: ../qml/Main.qml:321
+msgid "Remove"
+msgstr "Remover"
+
+#: ../qml/Main.qml:336
+msgid "Add"
+msgstr "Adicionar"
+
+#: ../qml/Main.qml:350
+msgid "Waydroid Help"
+msgstr "Ajuda WayDroid"
+
+#: ../qml/Main.qml:360
+msgid ""
+"<b>You need to run these commands in the terminal app. Tap a command to copy "
+"it to the clipboard.</b><br><br>"
+msgstr ""
+"<b>Você precisa de executar estes comandos na app do terminal. Clique num comando para copiar "
+"para a área de transferências.</b><br><br>"
+
+#: ../qml/Main.qml:382
+msgid ""
+"<a href='waydroid -h'>waydroid -h</a>, --help show this help message and "
+"exit <br><br><a href='waydroid -V'>waydroid -V</a>, --version show program's "
+"version number and exit <br><br><a href='waydroid -l LOG'>waydroid -l LOG</"
+"a>, --log LOG path to log file <br><br><a href='waydroid --details-to-"
+"stdout'>waydroid --details-to-stdout</a> print details (e.g. build output) "
+"to stdout, instead of writing to the log <br><br><a href='waydroid -"
+"v'>waydroid -v</a>, --verbose write even more to the logfiles (this may "
+"reduce performance) <br><br><a href='waydroid -q'>waydroid -q</a>, --quiet "
+"do not output any log messages"
+msgstr ""
+
+#: ../qml/Main.qml:409
+msgid ""
+"You copied a command to your clipboard. You can now paste and use it in the "
+"terminal app."
+msgstr ""
+"Você copiou um comando para a área de transferências. Você pode agora colar e usar na "
+"app do terminal."
+
+#: ../qml/PasswordPrompt.qml:8
+msgid "Authorization"
+msgstr "Autorização"
+
+#: ../qml/PasswordPrompt.qml:32
+msgid "Enter your passcode:"
+msgstr "Introduza o seu código:"
+
+#: ../qml/PasswordPrompt.qml:32
+msgid "Enter your password:"
+msgstr "Introduza a sua palavra-passe"
+
+#: ../qml/PasswordPrompt.qml:39
+msgid "passcode"
+msgstr "código"
+
+#: ../qml/PasswordPrompt.qml:39
+msgid "password"
+msgstr "palavra-passe"
+
+#: ../qml/PasswordPrompt.qml:53
+msgid "Incorrect passcode"
+msgstr "Código incorreto"
+
+#: ../qml/PasswordPrompt.qml:53
+msgid "Incorrect password"
+msgstr "Palavra-passe incorreta"
+
+#: ../qml/Uninstaller.qml:13
+msgid "Uninstall Waydroid"
+msgstr "Desinstalar WayDroid"
+
+#: ../qml/Uninstaller.qml:23
+msgid "Press 'start' to uninstall Waydroid."
+msgstr "Pressione 'iniciar' para desinstalar o WayDroid"
+
+#: ../qml/Uninstaller.qml:24
+msgid "Uninstallation starting"
+msgstr "A inicar desistalação"
+
+#: ../qml/Uninstaller.qml:25
+msgid "Stopping Waydroid container service"
+msgstr "A parar o serviço de container do WayDroid"
+
+#: ../qml/Uninstaller.qml:26
+msgid "Cleaning up Waydroid images"
+msgstr "A limpar as imagens do WayDroid"
+
+#: ../qml/Uninstaller.qml:27
+msgid "Uninstallation complete!"
+msgstr "Desinstalação completa!"
+
+#: ../qml/Uninstaller.qml:110
+msgid "Wipe app data"
+msgstr "Limpar dados da app"
