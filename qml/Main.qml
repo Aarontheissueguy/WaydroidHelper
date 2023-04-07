@@ -197,7 +197,7 @@ MainView {
 
                 Dialog {
                     id: dialogueHide
-                    title: "Show/Hide apps"
+                    title: i18n.tr("Show/Hide apps")
                     Label {
                         text: i18n.tr("Swipe on the listed apps to either hide them(bin) or show them(plus) in the Appdrawer. This will NOT install or uninstall the selected app. Reload the Appdrawer for the changes to take effect.")
                         wrapMode: Text.Wrap
