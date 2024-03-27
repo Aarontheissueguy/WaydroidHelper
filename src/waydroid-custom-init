@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+import sys
+import os
+import subprocess
+import shutil
+sys.path.insert(1, "/usr/lib/waydroid")
+import tools as waydroid
+
+
+is_bindmnt_setup = os.path.ismount("/etc/waydroid-extra")
+wrapper_script_exists = os.path.exists("/usr/local/bin/waydroid")
+
+
+# make / rw
+was_rw_root = False
+if not (is_bindmnt_setup or wrapper_script_exists):
+    root = os.statvfs('/')
+    if root.f_flag & os.ST_RDONLY:
+        subprocess.run(["mount", "-o", "remount,rw", "/"])
+    else:
+        was_rw_root = True
+
+
+if not is_bindmnt_setup:
+    # use userdata as backing for /etc/waydroid-extra
+    os.makedirs("/userdata/system-data/etc/waydroid-extra", exist_ok=True)
+    os.makedirs("/etc/waydroid-extra", exist_ok=True)
+    subprocess.run(["mount", "-o", "bind", "/userdata/system-data/etc/waydroid-extra", "/etc/waydroid-extra"])
+
+    # make bind-mount survive reboots
+    with open("/etc/system-image/writable-paths", "a") as f:
+        f.write("/etc/waydroid-extra auto persistent none none\n")
+
+
+if not wrapper_script_exists:
+    # workaround having to "double-launch" every UI action
+    with open("/usr/local/bin/waydroid", "w") as f:
+        f.write("""\
+#!/bin/sh
+case "$1" in
+show-full-ui) DOUBLE_LAUNCH=1 ;;
+app)
+    case "$2" in
+    launch|intent) DOUBLE_LAUNCH=1 ;;
+    esac
+esac
+
+if [ "$(pgrep -f '/usr/bin/waydroid (show-full-ui|app (launch|intent))')" ]; then
+    unset DOUBLE_LAUNCH
+fi
+
+[ -z "$DOUBLE_LAUNCH" ] && exec /usr/bin/waydroid "$@"
+
+/usr/bin/waydroid show-full-ui &
+sleep 1
+/usr/bin/waydroid show-full-ui
+wait
+""")
+    os.chmod("/usr/local/bin/waydroid", 0o755)
+
+
+# we're done messing with rootfs
+if not was_rw_root:
+    subprocess.run(["mount", "-o", "remount,ro", "/"])
+
+
+# prep for using waydroid download func similar to tools/__init__.py
+args = waydroid.helpers.arguments()
+args.work = waydroid.config.defaults["work"]
+args.sudo_timer = True
+args.timeout = 1800
+args.log = args.work + "/waydroid.log"
+waydroid.helpers.logging.init(args)
+
+
+if os.path.exists("/etc/waydroid-extra/images/system.img"):
+    print("Already initialized")
+    sys.exit(0)
+
+
+os.makedirs("/etc/waydroid-extra/images", exist_ok=True)
+custom_images_url = "https://sourceforge.net/projects/aleasto-lineageos/files/LineageOS%2020/waydroid_arm64"
+for img in ["system", "vendor"]:
+    downloaded_img = waydroid.helpers.http.download(args, f"{custom_images_url}/{img}.img/download", f"{img}.img", cache=False)
+    print(f"Validating {img} image") # stub
+    print("Extracting to /etc/waydroid-extra/images")
+    shutil.move(downloaded_img, f"/etc/waydroid-extra/images/{img}.img")
+
+
+# start using downloaded custom images
+sys.exit(subprocess.run(["waydroid", "init", "-f"]).returncode)
