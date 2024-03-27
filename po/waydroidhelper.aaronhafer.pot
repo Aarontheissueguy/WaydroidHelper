@@ -137,41 +137,34 @@ msgstr ""
 
 #: ../qml/Installer.qml:156
 msgid ""
-"<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel "
-"3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy "
-"S10<br>SHIFT6mq<br>Vollaphone (X)<br>"
+" <br><br> There is absolutely no warranty for this to work! Do not use this "
+"installer if you dont want to risk to brick your device permenantly (,which "
+"is highly unlikely though)!"
 msgstr ""
 
 #: ../qml/Installer.qml:156
 msgid ""
-"Other devices using Halium 9 or above may or may not work as well! <br> "
-"There is absolutely no warranty for this to work! Do not use this installer "
-"if you dont want to risk to brick your device permenantly (,which is highly "
-"unlikely though)!"
+"You are about to use an experimental Waydroid installer! <br> You can check "
+"if your device is supported on <a href=\"https://devices.ubuntu-touch.io"
+"\">https://devices.ubuntu-touch.io</a>"
 msgstr ""
 
-#: ../qml/Installer.qml:156
-msgid ""
-"You are about to use an experimental Waydroid installer! <br> Supported "
-"devices:"
-msgstr ""
-
-#: ../qml/Installer.qml:161
+#: ../qml/Installer.qml:162
 msgid "I understand the risk"
 msgstr ""
 
-#: ../qml/Installer.qml:167 ../qml/Installer.qml:210
+#: ../qml/Installer.qml:168 ../qml/Installer.qml:211
 #: ../qml/PasswordPrompt.qml:78
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/Installer.qml:196
+#: ../qml/Installer.qml:197
 msgid ""
 "You can install a special version of Waydroid that comes with google apps. "
 "(I personally do not recommend this as it will result in worse privacy.)"
 msgstr ""
 
-#: ../qml/Installer.qml:201
+#: ../qml/Installer.qml:202
 msgid "Enable GAPPS"
 msgstr ""
 
@@ -205,6 +198,10 @@ msgstr ""
 
 #: ../qml/Main.qml:192
 msgid "Show/Hide"
+msgstr ""
+
+#: ../qml/Main.qml:200
+msgid "Show/Hide apps"
 msgstr ""
 
 #: ../qml/Main.qml:202
