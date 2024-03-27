@@ -14,6 +14,7 @@ Page {
         trailingActionBar {
             actions: [
                 Action {
+                    id: gappsAction
                     iconName: "google-plus-symbolic"
                     text: i18n.tr("GAPPS")
                     enabled: !running
@@ -24,6 +25,7 @@ Page {
     }
 
     property var gAPPS: false
+    property var needsCustomImages: false
     property bool completed: false
     property bool running: false
 
@@ -46,7 +48,7 @@ Page {
     function startInstallation(password) {
         installerPage.running = true;
         root.setAppLifecycleExemption();
-        python.call('installer.install', [ password, gAPPS ]);
+        python.call('installer.install', [ password, gAPPS, needsCustomImages ]);
     }
 
     function showPasswordPrompt() {
@@ -101,7 +103,14 @@ Page {
         }
         spacing: units.gu(2)
 
-        Component.onCompleted: PopupUtils.open(dialogInstall)
+        Component.onCompleted: {
+            PopupUtils.open(dialogInstall);
+            python.call('installer.needs_custom_images', [], function (needsCustom) {
+                if (needsCustom) {
+                    PopupUtils.open(dialogCustom);
+                }
+            });
+        }
 
         Label {
             id: content
@@ -153,8 +162,9 @@ Page {
             title: "Disclaimer!"
 
             Label {
-                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> Supported devices:") + i18n.tr("<br>Fairephone 3/3+<br>OnePlus 5/5T<br>Pixel/Pixel XL<br>Pixel 2 XL<br>Pixel 3a<br>Poco F1<br>Redmi Note 7/7 Pro/9 Pro/9 Pro Max<br>Samsung Galaxy S10<br>SHIFT6mq<br>Vollaphone (X)<br>") + i18n.tr("Other devices using Halium 9 or above may or may not work as well! <br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device permenantly (,which is highly unlikely though)!")
+                text: i18n.tr("You are about to use an experimental Waydroid installer! <br> You can check if your device is supported on <a href=\"https://devices.ubuntu-touch.io\">https://devices.ubuntu-touch.io</a>") + i18n.tr(" <br><br> There is absolutely no warranty for this to work! Do not use this installer if you dont want to risk to brick your device permenantly (,which is highly unlikely though)!")
                 wrapMode: Text.Wrap
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
             Button {
@@ -167,6 +177,39 @@ Page {
                 text: i18n.tr("Cancel")
                 onClicked: {
                     PopupUtils.close(dialogueInstall);
+                    pageStack.pop();
+                }
+            }
+        }
+    }
+
+    Component {
+        id: dialogCustom
+
+        Dialog {
+            id: dialogueCustom
+            title: "Disclaimer!"
+
+            Label {
+                text: i18n.tr("Waydroid doesn't officially support Android versions past 11 (yet). Your device can still run unofficial Android 13 images (with some additional bugs) from <a href=\"https://sourceforge.net/projects/aleasto-lineageos/files/LineageOS 20/waydroid_arm64\">https://sourceforge.net/projects/aleasto-lineageos/files/LineageOS 20/waydroid_arm64</a> which Waydroid Helper can setup (excluding GAPPS). <br><br> Do you want to continue?")
+                wrapMode: Text.Wrap
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
+
+            Button {
+                text: i18n.tr("Yes")
+                color: theme.palette.normal.negative
+                onClicked: {
+                    needsCustomImages = true;
+                    gappsAction.visible = false;
+                    PopupUtils.close(dialogueCustom);
+                }
+            }
+
+            Button {
+                text: i18n.tr("Cancel")
+                onClicked: {
+                    PopupUtils.close(dialogueCustom);
                     pageStack.pop();
                 }
             }
