@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: waydroidhelper.aaronhafer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-12 11:27+0000\n"
+"POT-Creation-Date: 2024-03-27 23:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,11 +70,11 @@ msgstr ""
 msgid "Install Waydroid"
 msgstr ""
 
-#: ../qml/Installer.qml:18
+#: ../qml/Installer.qml:19
 msgid "GAPPS"
 msgstr ""
 
-#: ../qml/Installer.qml:32
+#: ../qml/Installer.qml:34
 msgid ""
 "By pressing 'start' the installation will, well... start. The installer will "
 "let you know what it is currently doing. The installation might take a "
@@ -82,89 +82,103 @@ msgid ""
 "this one."
 msgstr ""
 
-#: ../qml/Installer.qml:33
+#: ../qml/Installer.qml:35
 msgid "Installation starting"
 msgstr ""
 
-#: ../qml/Installer.qml:34
+#: ../qml/Installer.qml:36
 msgid "Preparing to download system image (with GAPPS)"
 msgstr ""
 
-#: ../qml/Installer.qml:35
+#: ../qml/Installer.qml:37
 msgid "Preparing to download system image"
 msgstr ""
 
-#: ../qml/Installer.qml:36
+#: ../qml/Installer.qml:38
 msgid "Downloading system image (with GAPPS)"
 msgstr ""
 
-#: ../qml/Installer.qml:37
+#: ../qml/Installer.qml:39
 msgid "Downloading system image"
 msgstr ""
 
-#: ../qml/Installer.qml:38
+#: ../qml/Installer.qml:40
 msgid "Downloading vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:39
+#: ../qml/Installer.qml:41
 msgid "Validating system image"
 msgstr ""
 
-#: ../qml/Installer.qml:40
+#: ../qml/Installer.qml:42
 msgid "Validating vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:41
+#: ../qml/Installer.qml:43
 msgid "Extracting system image"
 msgstr ""
 
-#: ../qml/Installer.qml:42
+#: ../qml/Installer.qml:44
 msgid "Extracting vendor image"
 msgstr ""
 
-#: ../qml/Installer.qml:43
+#: ../qml/Installer.qml:45
 msgid "Installation complete!"
 msgstr ""
 
-#: ../qml/Installer.qml:134 ../qml/Main.qml:208 ../qml/Main.qml:414
+#: ../qml/Installer.qml:143 ../qml/Main.qml:208 ../qml/Main.qml:414
 #: ../qml/PasswordPrompt.qml:58 ../qml/Uninstaller.qml:125
 msgid "Ok"
 msgstr ""
 
-#: ../qml/Installer.qml:134 ../qml/Uninstaller.qml:125
+#: ../qml/Installer.qml:143 ../qml/Uninstaller.qml:125
 msgid "Start"
 msgstr ""
 
-#: ../qml/Installer.qml:156
+#: ../qml/Installer.qml:165
 msgid ""
 " <br><br> There is absolutely no warranty for this to work! Do not use this "
 "installer if you dont want to risk to brick your device permenantly (,which "
 "is highly unlikely though)!"
 msgstr ""
 
-#: ../qml/Installer.qml:156
+#: ../qml/Installer.qml:165
 msgid ""
 "You are about to use an experimental Waydroid installer! <br> You can check "
 "if your device is supported on <a href=\"https://devices.ubuntu-touch.io"
 "\">https://devices.ubuntu-touch.io</a>"
 msgstr ""
 
-#: ../qml/Installer.qml:162
+#: ../qml/Installer.qml:171
 msgid "I understand the risk"
 msgstr ""
 
-#: ../qml/Installer.qml:168 ../qml/Installer.qml:211
+#: ../qml/Installer.qml:177 ../qml/Installer.qml:210 ../qml/Installer.qml:253
 #: ../qml/PasswordPrompt.qml:78
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/Installer.qml:197
+#: ../qml/Installer.qml:194
+msgid ""
+"Waydroid doesn't officially support Android versions past 11 (yet). Your "
+"device can still run unofficial Android 13 images (with some additional "
+"bugs) from <a href=\"https://sourceforge.net/projects/aleasto-lineageos/"
+"files/LineageOS 20/waydroid_arm64\">https://sourceforge.net/projects/aleasto-"
+"lineageos/files/LineageOS 20/waydroid_arm64</a> which Waydroid Helper can "
+"setup (excluding GAPPS). <br><br> Do you want to continue?"
+msgstr ""
+
+#: ../qml/Installer.qml:200
+msgid "Yes"
+msgstr ""
+
+#: ../qml/Installer.qml:239
 msgid ""
 "You can install a special version of Waydroid that comes with google apps. "
 "(I personally do not recommend this as it will result in worse privacy.)"
 msgstr ""
 
-#: ../qml/Installer.qml:202
+#: ../qml/Installer.qml:244
 msgid "Enable GAPPS"
 msgstr ""
 
