@@ -14,6 +14,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 import os, re
+import configparser
 
 class Appdrawer:
     def return_apps(self):
@@ -55,33 +56,26 @@ class Appdrawer:
         abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
         if not os.path.isfile(abs_path):
             return
-        with open(abs_path, "r") as f:
-            content = f.read()
-        re_status = re.search(r"NoDisplay=(true|false)?", content)
-        if not re_status:
-            return
-        hidden = re_status.group(1) == "true"
-        if hidden:
-            content = re.sub(r"NoDisplay=true", "NoDisplay=false", content)
+        desktop = configparser.ConfigParser()
+        desktop.optionxform = str  # Keep case of keys
+        desktop.read(abs_path)
+        if desktop["Desktop Entry"].getboolean("NoDisplay", fallback=False):
+            desktop["Desktop Entry"]["NoDisplay"] = "false"
             with open(abs_path, "w") as f:
-                f.write(content)
+                desktop.write(f, space_around_delimiters=False)
     
     def hide(self, appname):
         path = self.clean_to_path(appname)
         abs_path = os.path.join("/home/phablet/.local/share/applications/", path)
         if not os.path.isfile(abs_path):
             return
-        with open(abs_path, "r") as f:
-            content = f.read()
-        re_status = re.search(r"NoDisplay=(true|false)?", content)
-        if not re_status:
-            content += "NoDisplay=true\n"
-        else:
-            hidden = re_status.group(1) == "true"
-            if not hidden:
-                content = re.sub("NoDisplay=false", "NoDisplay=true", content)
-        with open(abs_path, "w") as f:
-            f.write(content)
+        desktop = configparser.ConfigParser()
+        desktop.optionxform = str  # Keep case of keys
+        desktop.read(abs_path)
+        if not desktop["Desktop Entry"].getboolean("NoDisplay", fallback=False):
+            desktop["Desktop Entry"]["NoDisplay"] = "true"
+            with open(abs_path, "w") as f:
+                desktop.write(f, space_around_delimiters=False)
 
 appdrawer = Appdrawer()
 
