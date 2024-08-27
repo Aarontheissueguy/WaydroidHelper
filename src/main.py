@@ -88,7 +88,7 @@ appdrawer = Appdrawer()
 class StopApp:
     def create(self):
         with open("/home/phablet/.local/share/applications/stop-waydroid.desktop", "w") as f:
-            f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/lib/waydroid/data/AppIcon.png")
+            f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/share/icons/hicolor/512x512/apps/waydroid.png")
     def remove(self):
         if os.path.isfile("/home/phablet/.local/share/applications/stop-waydroid.desktop"):
             os.remove("/home/phablet/.local/share/applications/stop-waydroid.desktop")
