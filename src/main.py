@@ -75,7 +75,11 @@ class Appdrawer:
             content = f.read()
         re_status = re.search(r"NoDisplay=(true|false)?", content)
         if not re_status:
-            content += "NoDisplay=true\n"
+            section = "[Desktop Entry]\n"
+            index = repr(content).find(section) - 1 
+            len_found = len(section) - 1 
+            old_lines = content[index + len_found:]
+            content = section + "NoDisplay=true\n" + old_lines
         else:
             hidden = re_status.group(1) == "true"
             if not hidden:
