@@ -1,16 +1,14 @@
-# Copyright 2022 Marcel Alexandru Nitan
-# https://github.com/nitanmarcel/cinny-click-packaging/blob/main/.github/workflows/build.yml
-
 name: Clickable Build
 
 on: [ push, pull_request ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.2.2
       - name: Install clickable
         run: |
           python3 -m pip install clickable-ut
@@ -18,7 +16,7 @@ jobs:
         run: |
           clickable build
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.4.3
         with:
           name: waydroid_helper_UNCONFINED
           path: build/all/app/*.click
