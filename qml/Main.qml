@@ -334,9 +334,10 @@ MainView {
                     bottom: parent.bottom
                     bottomMargin: 20
                 }
-                color: theme.palette.normal.raised
-//                color: "cornflowerblue"
-                text: i18n.tr("Renew")
+//                color: theme.palette.normal.raised
+                color: "cornflowerblue"
+//                text: i18n.tr("Renew")
+                text: i18n.tr("<font color=\"white\">Renew</font>")
 
                 onClicked: {
                     python.call('stopapp.renew', []);
