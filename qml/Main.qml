@@ -334,7 +334,8 @@ MainView {
                     bottom: parent.bottom
                     bottomMargin: 20
                 }
-                color: theme.palette.normal.negative
+                color: theme.palette.normal.raised
+//                color: "cornflowerblue"
                 text: i18n.tr("Renew")
 
                 onClicked: {
