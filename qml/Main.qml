@@ -326,6 +326,23 @@ MainView {
             }
 
             Button {
+                id: renewButton
+                anchors {
+//                    left: parent.left
+//                    leftMargin: parent.width / 8
+                    horizontalCenter: parent.horizontalCenter
+                    bottom: parent.bottom
+                    bottomMargin: 20
+                }
+                color: theme.palette.normal.negative
+                text: i18n.tr("Renew")
+
+                onClicked: {
+                    python.call('stopapp.renew', []);
+                }
+            }
+
+            Button {
                 anchors {
                     right: parent.right
                     rightMargin: parent.width / 8
