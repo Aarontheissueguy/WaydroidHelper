@@ -75,7 +75,8 @@ class Appdrawer:
             lines = f.readlines()
         with open(abs_path, "w") as f:
             for line in lines:
-                if line.strip("\n") != "NoDisplay=true" or line.strip("\n") != "NoDisplay=false":
+#                if line.strip("\n") != "NoDisplay=true":
+                 if line.strip("\n") not in ("NoDisplay=true","NoDisplay=false"):
                     f.write(line)
 #        with open(abs_path, "r") as in_file:
 #            buf = in_file.readlines()
