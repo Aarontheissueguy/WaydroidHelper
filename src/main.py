@@ -78,13 +78,13 @@ class Appdrawer:
 #                if line.strip("\n") != "NoDisplay=true":
                  if line.strip("\n") not in ("NoDisplay=true","NoDisplay=false"):
                     f.write(line)
-#        with open(abs_path, "r") as in_file:
-#            buf = in_file.readlines()
-#        with open(abs_path, "w") as out_file:
-#            for line in buf:
-#                if line == "; NoDisplay=true\n":
-#                    line = line + "[Desktop Entry]\n"
-#                out_file.write(line)
+        with open(abs_path, "r") as in_file:
+            buf = in_file.readlines()
+        with open(abs_path, "w") as out_file:
+            for line in buf:
+                if line == "; NoDisplay=true\n":
+                    line = line + "[Desktop Entry]\n"
+                out_file.write(line)
 
 #            content = f.read()
 #        re_status = re.search(r"NoDisplay=(true|false)?", content)
