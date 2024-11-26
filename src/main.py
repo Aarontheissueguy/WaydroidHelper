@@ -82,8 +82,8 @@ class Appdrawer:
             buf = in_file.readlines()
         with open(abs_path, "w") as out_file:
             for line in buf:
-                if line == "; NoDisplay=true\n":
-                    line = line + "[Desktop Entry]\n"
+                if line == "[Desktop Entry]\n":
+                    line = line + "NoDisplay=true\n"
                 out_file.write(line)
 
 #            content = f.read()
