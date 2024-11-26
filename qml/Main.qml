@@ -328,15 +328,11 @@ MainView {
             Button {
                 id: renewButton
                 anchors {
-//                    left: parent.left
-//                    leftMargin: parent.width / 8
                     horizontalCenter: parent.horizontalCenter
                     bottom: parent.bottom
                     bottomMargin: 20
                 }
-//                color: theme.palette.normal.raised
                 color: "cornflowerblue"
-//                text: i18n.tr("Renew")
                 text: i18n.tr("<font color=\"white\">Renew</font>")
 
                 onClicked: {
