@@ -56,15 +56,29 @@ class Appdrawer:
         if not os.path.isfile(abs_path):
             return
         with open(abs_path, "r") as f:
-            content = f.read()
-        re_status = re.search(r"NoDisplay=(true|false)?", content)
-        if not re_status:
-            return
-        hidden = re_status.group(1) == "true"
-        if hidden:
-            content = re.sub(r"NoDisplay=true", "NoDisplay=false", content)
-            with open(abs_path, "w") as f:
-                f.write(content)
+            lines = f.readlines()
+        with open(abs_path, "w") as f:
+            for line in lines:
+                 if line.strip("\n") not in ("NoDisplay=true","NoDisplay=false"):
+                    f.write(line)
+        with open(abs_path, "r") as in_file:
+            buf = in_file.readlines()
+        with open(abs_path, "w") as out_file:
+            for line in buf:
+                if line == "[Desktop Entry]\n":
+                    line = line + "NoDisplay=false\n"
+                out_file.write(line)
+
+
+#            content = f.read()
+#        re_status = re.search(r"NoDisplay=(true|false)?", content)
+#        if not re_status:
+#            return
+#        hidden = re_status.group(1) == "true"
+#        if hidden:
+#            content = re.sub(r"NoDisplay=true", "NoDisplay=false", content)
+#            with open(abs_path, "w") as f:
+#                f.write(content)
     
     def hide(self, appname):
         path = self.clean_to_path(appname)
@@ -75,7 +89,6 @@ class Appdrawer:
             lines = f.readlines()
         with open(abs_path, "w") as f:
             for line in lines:
-#                if line.strip("\n") != "NoDisplay=true":
                  if line.strip("\n") not in ("NoDisplay=true","NoDisplay=false"):
                     f.write(line)
         with open(abs_path, "r") as in_file:
