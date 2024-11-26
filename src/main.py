@@ -68,17 +68,6 @@ class Appdrawer:
                 if line == "[Desktop Entry]\n":
                     line = line + "NoDisplay=false\n"
                 out_file.write(line)
-
-
-#            content = f.read()
-#        re_status = re.search(r"NoDisplay=(true|false)?", content)
-#        if not re_status:
-#            return
-#        hidden = re_status.group(1) == "true"
-#        if hidden:
-#            content = re.sub(r"NoDisplay=true", "NoDisplay=false", content)
-#            with open(abs_path, "w") as f:
-#                f.write(content)
     
     def hide(self, appname):
         path = self.clean_to_path(appname)
@@ -98,17 +87,6 @@ class Appdrawer:
                 if line == "[Desktop Entry]\n":
                     line = line + "NoDisplay=true\n"
                 out_file.write(line)
-
-#            content = f.read()
-#        re_status = re.search(r"NoDisplay=(true|false)?", content)
-#        if not re_status:
-#            content += "NoDisplay=true\n"
-#        else:
-#            hidden = re_status.group(1) == "true"
-#            if not hidden:
-#                content = re.sub("NoDisplay=false", "NoDisplay=true", content)
-#        with open(abs_path, "w") as f:
-#            f.write(content)
 
 appdrawer = Appdrawer()
 
