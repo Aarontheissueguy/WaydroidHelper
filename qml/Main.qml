@@ -34,7 +34,7 @@ MainView {
 
     property var inputMethodHints: Qt.ImhHiddenText
     property var isPasswordNumeric: inputMethodHints & Qt.ImhDigitsOnly
-    property alias pycll: python.call
+    property alias pythn: python
 
     function checkAppLifecycleExemption() {
         const appidList = gsettings.lifecycleExemptAppids;
@@ -73,7 +73,7 @@ MainView {
     // cleanup in case it crashes
     Component.onCompleted: {
         unsetAppLifecycleExemption()
-        pycll('stopapp.renew', []);
+        pythn.call('stopapp.renew', []);
     }
     Component.onDestruction: unsetAppLifecycleExemption()
 
