@@ -1,3 +1,6 @@
+# Copyright 2022 Marcel Alexandru Nitan
+# https://github.com/nitanmarcel/cinny-click-packaging/blob/main/.github/workflows/build.yml
+
 name: Clickable Build
 
 on: [ push, pull_request ]
