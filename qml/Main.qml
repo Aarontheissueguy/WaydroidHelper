@@ -72,7 +72,7 @@ MainView {
     // cleanup in case it crashes
     Component.onCompleted: {
         unsetAppLifecycleExemption()
-        python.call('stopapp.renew', []);
+        root.python.call('stopapp.renew', []);
     }
     Component.onDestruction: unsetAppLifecycleExemption()
 
