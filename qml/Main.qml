@@ -34,7 +34,6 @@ MainView {
 
     property var inputMethodHints: Qt.ImhHiddenText
     property var isPasswordNumeric: inputMethodHints & Qt.ImhDigitsOnly
-    property alias pythn: python
 
     function checkAppLifecycleExemption() {
         const appidList = gsettings.lifecycleExemptAppids;
@@ -73,7 +72,7 @@ MainView {
     // cleanup in case it crashes
     Component.onCompleted: {
         unsetAppLifecycleExemption()
-        pythn.call('stopapp.renew', []);
+        python.call('stopapp.renew', []);
     }
     Component.onDestruction: unsetAppLifecycleExemption()
 
@@ -328,21 +327,6 @@ MainView {
                     python.call('stopapp.remove', []);
                 }
             }
-
-/*            Button {
-                id: renewButton
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    bottom: parent.bottom
-                    bottomMargin: 20
-                }
-                color: "cornflowerblue"
-                text: i18n.tr("<font color=\"white\">Renew</font>")
-
-                onClicked: {
-                    python.call('stopapp.renew', []);
-                }
-            }*/
 
             Button {
                 anchors {
