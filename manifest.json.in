@@ -9,7 +9,7 @@
             "desktop":  "waydroidhelper.desktop"
         }
     },
-    "version": "3.1.0",
+    "version": "3.1.1",
     "maintainer": "Aaron Hafer <aaronhafer@gmx.de>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
