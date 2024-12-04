@@ -70,7 +70,10 @@ MainView {
     }
 
     // cleanup in case it crashes
-    Component.onCompleted: unsetAppLifecycleExemption()
+    Component.onCompleted: {
+        unsetAppLifecycleExemption()
+        python.call('stopapp.renew', []);
+    }
     Component.onDestruction: unsetAppLifecycleExemption()
 
     GSettings {
@@ -325,7 +328,7 @@ MainView {
                 }
             }
 
-            Button {
+/*            Button {
                 id: renewButton
                 anchors {
                     horizontalCenter: parent.horizontalCenter
@@ -338,7 +341,7 @@ MainView {
                 onClicked: {
                     python.call('stopapp.renew', []);
                 }
-            }
+            }*/
 
             Button {
                 anchors {
