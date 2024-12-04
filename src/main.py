@@ -106,7 +106,7 @@ class StopApp:
         if os.path.isfile("/home/phablet/.local/share/applications/stop-waydroid.desktop"):
             with open("/home/phablet/.local/share/applications/stop-waydroid.desktop", "r") as f:
                 content = f.read()
-                if Icon=/usr/lib/waydroid/data/AppIcon.png in content:
+                if "Icon=/usr/lib/waydroid/data/AppIcon.png" in content:
                     os.remove("/home/phablet/.local/share/applications/stop-waydroid.desktop")
                     with open("/home/phablet/.local/share/applications/stop-waydroid.desktop", "w") as f:
                         f.write("[Desktop Entry]\nType=Application\nName=Waydroid Stop\nExec=waydroid session stop\nIcon=/usr/share/icons/hicolor/512x512/apps/waydroid.png")
