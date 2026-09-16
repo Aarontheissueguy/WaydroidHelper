@@ -7,9 +7,7 @@ Current features:
 * A "Stop App"
 * Access to help resources
 
-Translations can be submitted here: https://poeditor.com/join/project?hash=DIES6h7HNF
-
-Donations: https://www.paypal.com/paypalme/AaronTheIssueGuy
+Thanks to all the volunteers keeping this software maintained!
 
 ## License
 
